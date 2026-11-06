@@ -1,54 +1,112 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LOVE.EXE — Birthday Security Scan</title>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LOVE.EXE 4.0 — The Girlfriend Protocol</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at top,#293957,#080d18 70%);color:#f7f7fb;font:16px/1.5 "Segoe UI",Arial,sans-serif}
-.window{width:min(100%,560px);border:1px solid #52617d;border-radius:16px;overflow:hidden;background:#111b2d;box-shadow:0 24px 80px #0009}
-header{padding:16px 20px;background:#1d2b43;border-bottom:1px solid #46536e;font-weight:700}
-main{padding:25px 22px}.tag{color:#a9b9d8;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-h1{font-size:clamp(26px,6vw,36px);line-height:1.12;margin:10px 0}p{color:#c8d1e2}
-.scan{margin:22px 0;padding:17px;border:1px solid #35445f;border-radius:12px;background:#0c1424}
-.line{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:12px}
-.track{height:14px;border-radius:99px;background:#29364d;overflow:hidden}.fill{width:0;height:100%;background:linear-gradient(90deg,#6c8cff,#d77bff);transition:width .12s}
-#status{min-height:25px;margin:12px 0 0;color:#b9c8e5;font-size:14px}
-button{border:0;border-radius:10px;padding:13px 18px;background:#ffb6cf;color:#101522;font-weight:800;font-size:15px;cursor:pointer}
-button:disabled{opacity:.55;cursor:default}.small{color:#8796b2;font-size:12px;margin-top:17px}
-.overlay{position:fixed;inset:0;background:#020611d9;display:none;place-items:center;padding:20px}
-.modal{width:min(100%,420px);background:#182238;border:1px solid #647493;border-radius:15px;padding:22px;box-shadow:0 20px 70px #000b}
-.modal h2{margin:8px 0;font-size:22px}.modal p{white-space:pre-line}
-.heart{color:#ff86b4}
-</style></head><body>
-<div class="window"><header>● ● ● &nbsp; LOVE.EXE — Birthday Security System</header><main>
-<div class="tag">Personal notification • Priority: VERY HIGH</div>
-<h1>Scanning for a <span class="heart">special person</span>…</h1>
-<p>A very serious system check is about to begin. Please remain adorable while we investigate. 😂</p>
-<div class="scan"><div class="line"><strong id="scanLabel">Preparing special-person scan</strong><strong id="percent">0%</strong></div>
-<div class="track"><div class="fill" id="fill"></div></div><div id="status">Waiting for your permission to begin…</div></div>
-<button id="start">START THE SCAN ❤️</button>
-<p class="small">A playful birthday surprise. This page does not scan files, access your device, or change anything.</p>
-</main></div>
-<div class="overlay" id="overlay" role="dialog" aria-modal="true"><div class="modal">
-<div class="tag" id="tag">SYSTEM NOTICE</div><h2 id="heading">Alert</h2><p id="message"></p><button id="next">OKAY 😂</button>
-</div></div>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:18px;display:grid;place-items:center;background:radial-gradient(circle at top,#30395e,#090d19 72%);color:#f8f5ff;font:16px/1.55 "Segoe UI",Arial,sans-serif}
+.shell{width:min(100%,680px);border:1px solid #596487;border-radius:18px;overflow:hidden;background:#131c30;box-shadow:0 25px 90px #000a}
+header{padding:15px 19px;background:#202b46;border-bottom:1px solid #465372;display:flex;justify-content:space-between;gap:10px;align-items:center}.brand{font-weight:800;letter-spacing:.04em}.online{font-size:11px;color:#a7f2cf;border:1px solid #3d806d;border-radius:20px;padding:3px 9px}
+main{padding:clamp(19px,5vw,30px)}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#aebadd}
+h1{font-size:clamp(27px,7vw,42px);line-height:1.1;margin:10px 0}h2{font-size:23px;margin:8px 0}p{color:#cbd3e8}
+.panel,.report{background:#0d1528;border:1px solid #354362;border-radius:14px;padding:17px;margin:18px 0}
+.row{display:flex;justify-content:space-between;gap:12px}.track{height:13px;background:#293653;border-radius:30px;overflow:hidden;margin:12px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#728eff,#e77fc4);transition:width .15s}
+#status{min-height:25px;color:#b9c7e4;font-size:14px}.muted{font-size:12px;color:#8998b9}
+button{border:0;border-radius:11px;padding:13px 17px;background:#ffb9d7;color:#211626;font-weight:800;font-size:14px;cursor:pointer;margin:4px 5px 4px 0}button.alt{background:#354360;color:#fff}button:disabled{opacity:.5;cursor:default}
+.hidden{display:none!important}.pink{color:#ffacd2}.gold{color:#ffe19b}.big{font-size:clamp(38px,10vw,58px);font-weight:900;color:#ffadd4}.center{text-align:center}
+.tile{border:1px solid #4a5578;background:#202b46;border-radius:13px;padding:16px;margin:12px 0}.meter{height:8px;background:#35415f;border-radius:20px;overflow:hidden}.meter span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#7d8fff,#ef83c4)}
+.letter{white-space:pre-line;background:#fff4f8;color:#563449;border-radius:12px;padding:21px;font:16px/1.75 Georgia,serif}
+.modalbg{position:fixed;inset:0;background:#020611df;display:none;place-items:center;padding:18px;z-index:5}.modal{width:min(100%,430px);background:#1a2440;border:1px solid #727da4;border-radius:16px;padding:22px;box-shadow:0 20px 80px #000b}.modal p{white-space:pre-line}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:4}.float{position:absolute;bottom:-35px;animation:rise 5s linear forwards;font-size:24px}@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
+</style></head>
+<body>
+<div class="shell">
+<header><div class="brand">♥ LOVE.EXE 4.0 <span class="muted">/ GIRLFRIEND PROTOCOL</span></div><span class="online">● SYSTEM ONLINE</span></header>
+<main>
+<section id="s0">
+<div class="eyebrow">Personal notification • Priority: VERY HIGH</div>
+<h1>Scanning for a <span class="pink">special person</span>…</h1>
+<p>A routine system check has detected someone unusually important. The operator has authorized a full investigation. 😂</p>
+<div class="panel"><div class="row"><b id="scanLabel">Preparing special-person scan</b><b id="percent">0%</b></div><div class="track"><div class="fill" id="fill"></div></div><div id="status">Waiting for your permission to begin…</div></div>
+<button id="start">START THE INVESTIGATION ❤️</button>
+<p class="muted">A playful surprise only. This page does not scan your device, access files, or change settings.</p>
+</section>
+
+<section id="s1" class="hidden">
+<div class="eyebrow">Investigation complete • confidential report</div><h1>Subject successfully identified. 🕵️‍♀️</h1>
+<div class="report"><div class="muted">SUBJECT PROFILE</div><h2 class="pink">The most special girl ❤️</h2><p><b>Known offences:</b><br>• Stealing the operator's attention.<br>• Causing random smiling at the phone.<br>• Being ridiculously adorable.</p><div class="muted">THREAT LEVEL</div><h2 class="gold">EXTREMELY LOVABLE</h2><p>Verdict: guilty… of being loved. 😂</p></div>
+<button id="toQuiz">CONTINUE TO RELATIONSHIP TEST</button>
+</section>
+
+<section id="s2" class="hidden">
+<div class="eyebrow">Mission 02 • Relationship diagnostics</div><h1>Compatibility challenge</h1><p>Answer these highly scientific questions. No pressure. The system is definitely not judging. 😂</p>
+<div class="tile"><b>1. Who is more likely to start missing the other first?</b><div><button class="answer">Me, obviously 😌</button><button class="answer">Your boyfriend 😂</button></div></div>
+<div class="tile"><b>2. What is the most powerful relationship weapon?</b><div><button class="answer">A cute smile</button><button class="answer">Food and hugs</button></div></div>
+<div class="tile"><b>3. What should happen on 7 November?</b><div><button class="answer">A normal day</button><button class="answer">A BIG birthday celebration 🎂</button></div></div>
+<p class="muted" id="quizStatus">Answer all three to unlock your report.</p><button id="quizNext" disabled>REVEAL COMPATIBILITY</button>
+</section>
+
+<section id="s3" class="hidden center">
+<div class="eyebrow">Compatibility report • verified</div><h1>Results are in…</h1><div class="big">100%</div><div class="meter"><span></span></div>
+<p>Perfect match detected. The operator is officially, hopelessly fond of you. ❤️</p><div class="tile">⚠️ SYSTEM WARNING: No known cure for thinking about this girl all day. 😂</div>
+<button id="toPuzzle">UNLOCK THE SECRET MISSION</button>
+</section>
+
+<section id="s4" class="hidden">
+<div class="eyebrow">Mission 04 • Secret access challenge</div><h1>One final security question…</h1><p>Which date is marked as a very important celebration in this system?</p>
+<div class="tile"><button class="dateAnswer">6 November</button><button class="dateAnswer">7 November ❤️</button><button class="dateAnswer">8 November</button></div>
+<p class="muted" id="puzzleStatus">Choose carefully, agent.</p>
+</section>
+
+<section id="s5" class="hidden center">
+<div class="eyebrow">Access granted • priority birthday mission</div><h1>Mission: Celebrate YOU</h1><div class="big" id="days">--</div><p id="daysLabel">days until 7 November</p>
+<div class="tile"><h2 class="pink">MISSION BRIEF</h2><p>Objective: make one amazing girl feel celebrated, appreciated and loved.</p><p>Status: birthday preparations recommended. 🎂</p></div>
+<button id="toGift">UNLOCK CLASSIFIED GIFT 🎁</button>
+</section>
+
+<section id="s6" class="hidden center">
+<div class="eyebrow">Confidential gift • access granted</div><h1>A little something for you…</h1><div class="big">🎁</div>
+<div class="tile"><h2 class="pink">GIFT CONTENTS</h2><p>Unlimited hugs, kisses, laughter, support and one boyfriend who is very lucky to have you.</p><p class="muted">Terms: non-refundable. Lifetime validity. 😂</p></div>
+<button id="toLetter">OPEN THE SECRET LOVE LETTER 💌</button>
+</section>
+
+<section id="s7" class="hidden">
+<div class="eyebrow">Private message • from your favourite troublemaker</div><h1 class="pink">A little note for you…</h1>
+<div class="letter">My love,
+
+I wanted to make you smile before your special day arrives. I hope 7 November reminds you how much you mean to me.
+
+You deserve a day filled with happiness, laughter, peace and beautiful memories. Thank you for being yourself and for bringing so much joy into my life.
+
+No silly system scan could ever measure how special you are to me. I hope I get to keep making you smile, today and every day.
+
+Happy birthday, my beautiful girl. I love you. ❤️
+
+— Your favourite troublemaker</div>
+<button id="final">ACTIVATE THE BIRTHDAY FINALE ✨</button>
+</section>
+
+<section id="s8" class="hidden center">
+<div class="eyebrow">LOVE.EXE • mission complete</div><div class="big">HAPPY BIRTHDAY!</div><h1 class="pink">To my favourite person 🥹❤️</h1>
+<p>May your new year of life be as lovely, bright and wonderful as you are.</p>
+<div class="tile"><h2>FINAL SYSTEM STATUS</h2><p>💕 Love: unlimited<br>😂 Laughter: required daily<br>🎂 Cake: absolutely necessary<br>❤️ Special-girl status: permanent</p></div>
+<p class="gold">You are loved. Never forget that.</p><button id="replay" class="alt">REPLAY THE SURPRISE</button>
+</section>
+</main><footer>LOVE.EXE 4.0 • Made with affection, mischief and absolutely no actual hacking.</footer>
+</div>
+<div class="modalbg" id="modal"><div class="modal"><div class="eyebrow" id="mTag">SYSTEM ALERT</div><h2 id="mTitle">Warning</h2><p id="mText"></p><button id="mOk">OKAY 😂</button></div></div><div class="hearts" id="hearts"></div>
 <script>
-const $=id=>document.getElementById(id);
-let queue=[],step=0,running=false,complete=false;
-function birthdayInfo(){const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());let b=new Date(now.getFullYear(),10,7);if(today>b)b=new Date(now.getFullYear()+1,10,7);return Math.round((b-today)/86400000)}
-function popup(item){$("tag").textContent=item.tag;$("heading").textContent=item.title;$("message").textContent=item.text;$("overlay").style.display="grid"}
-function results(){
-const d=birthdayInfo(),count=d===0?"IT'S YOUR BIRTHDAY TODAY!!! 🎂🎉":d===1?"Only 1 day left until your birthday! 🎂":`Your birthday is in ${d} days! 🎂`;
-queue=[
-{tag:"SECURITY ALERT",title:"WARNING 1 ⚠️",text:"Dangerously high levels of cuteness detected. Please stay calm."},
-{tag:"SECURITY ALERT",title:"WARNING 2 🚨",text:"Birthday excitement is approaching critical levels. Cake supplies may be required."},
-{tag:"SECURITY ALERT",title:"WARNING 3 😂",text:"Someone deserves extra hugs, attention and presents. This is not a drill."},
-{tag:"COUNTDOWN MODULE",title:"BIRTHDAY COUNTDOWN",text:count+"\\n\\nDATE: 7 NOVEMBER"},
-{tag:"FINAL SYSTEM REPORT",title:"SPECIAL PERSON VERIFIED ❤️",text:"Identity: one amazing girl.\\nSystem status: completely loved.\\nOperator: your favourite troublemaker. 😂"},
-{tag:"LOVE.EXE — MISSION COMPLETE",title:"HAPPY BIRTHDAY IN ADVANCE, MY LOVE! 🥹❤️",text:"I hope your birthday is as beautiful as your smile and as special as you make my life feel. You deserve happiness, laughter, peace and all the lovely things this world can offer.\\n\\nThank you for being you. I’m lucky to have you. I love you. ❤️"}
-];step=0;popup(queue[step])}
-$("start").addEventListener("click",()=>{
-if(running)return;if(complete){results();return}running=true;$("start").disabled=true;$("start").textContent="SCANNING…";
-const msgs=["Checking for extraordinary beauty…","Measuring smile levels…","Searching for kindness…","Detecting birthday energy…","Confirming boyfriend-approved cuteness…","Scan complete: SPECIAL PERSON FOUND ❤️"];let n=0;
-const timer=setInterval(()=>{n++;let v=Math.round(n/msgs.length*100);$("fill").style.width=v+"%";$("percent").textContent=v+"%";$("status").textContent=msgs[n-1];$("scanLabel").textContent=n===msgs.length?"Scan complete":"Scanning…";if(n===msgs.length){clearInterval(timer);running=false;complete=true;$("start").disabled=false;$("start").textContent="VIEW YOUR RESULTS ❤️"}},650)
-});
-$("next").addEventListener("click",()=>{$("overlay").style.display="none";step++;if(step<queue.length)popup(queue[step])});
+const $=id=>document.getElementById(id);let quiz=0;
+function go(n){for(let i=0;i<=8;i++)$("s"+i).classList.toggle("hidden",i!==n)}
+function popup(title,text,tag="SYSTEM ALERT",done){$("mTitle").textContent=title;$("mText").textContent=text;$("mTag").textContent=tag;$("modal").style.display="grid";$("mOk").onclick=()=>{$("modal").style.display="none";if(done)done()}}
+function daysToBirthday(){const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());let b=new Date(now.getFullYear(),10,7);if(today>b)b=new Date(now.getFullYear()+1,10,7);return Math.round((b-today)/86400000)}
+$("start").onclick=()=>{let i=0;const messages=["Checking extraordinary beauty…","Measuring smile levels…","Searching for kindness…","Detecting birthday excitement…","Confirming boyfriend-approved cuteness…","SPECIAL PERSON FOUND ❤️"];$("start").disabled=true;const timer=setInterval(()=>{i++;let v=Math.round(i/messages.length*100);$("fill").style.width=v+"%";$("percent").textContent=v+"%";$("status").textContent=messages[i-1];$("scanLabel").textContent=i===messages.length?"Scan complete":"Scanning…";if(i===messages.length){clearInterval(timer);popup("WARNING 001 ⚠️","Dangerously high levels of cuteness detected. Please remain calm.", "SECURITY ALERT",()=>popup("WARNING 002 🚨","Operator's heart has been stolen. Suspect is still at large… probably reading this.","SECURITY ALERT",()=>popup("WARNING 003 😂","Birthday excitement approaching critical levels. Cake supplies recommended.","SECURITY ALERT",()=>go(1))))}},550)};
+$("toQuiz").onclick=()=>go(2);
+document.querySelectorAll(".answer").forEach(b=>b.onclick=()=>{if(b.dataset.done)return;b.dataset.done="1";b.style.outline="2px solid #ffacd2";quiz++;$("quizStatus").textContent=`${quiz} of 3 answers recorded.`;if(quiz===3)$("quizNext").disabled=false});
+$("quizNext").onclick=()=>go(3);$("toPuzzle").onclick=()=>go(4);
+document.querySelectorAll(".dateAnswer").forEach(b=>b.onclick=()=>{if(b.textContent.includes("7 November")){popup("ACCESS GRANTED 🔓","Correct! You have unlocked the birthday mission.","SECRET MISSION",()=>{let d=daysToBirthday();$("days").textContent=d===0?"TODAY!":d;$("daysLabel").textContent=d===0?"IT'S YOUR BIRTHDAY! 🎉":d===1?"day until 7 November":"days until 7 November";go(5)})}else popup("ACCESS DENIED 😂","Not quite, agent. Try again. Hint: the date is in the first week of November.")});
+$("toGift").onclick=()=>go(6);$("toLetter").onclick=()=>go(7);
+$("final").onclick=()=>{go(8);for(let i=0;i<34;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").appendChild(e);setTimeout(()=>e.remove(),7500)}};
+$("replay").onclick=()=>{quiz=0;document.querySelectorAll(".answer").forEach(b=>{delete b.dataset.done;b.style.outline="none"});$("quizNext").disabled=true;$("quizStatus").textContent="Answer all three to unlock your report.";$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("start").disabled=false;go(0)};
 </script></body></html>
