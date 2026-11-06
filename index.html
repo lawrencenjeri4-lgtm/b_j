@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#10162a">
-<title>LOVE.EXE 6.0 — Birthday Edition</title>
+<title>LOVE.EXE 7.0 — Birthday Edition</title>
 <style>
 *{box-sizing:border-box}
 :root{--pink:#ffafd2;--purple:#9eabff;--gold:#ffe29b;--ink:#0c1222;--panel:#131d33;--line:#3b496b}
@@ -32,18 +32,19 @@ button.alt{background:#354360;color:#fff}button:disabled{opacity:.5;cursor:defau
 #wheel{width:100%;height:auto;filter:drop-shadow(0 10px 20px #0008)}
 .pointer{position:absolute;top:-8px;z-index:2;color:#fff;font-size:30px;text-shadow:0 2px 5px #000}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
-.photo{background:#0d1528;border:1px solid #485575;border-radius:12px;overflow:hidden;min-height:130px}
+.photo{background:#0d1528;border:1px solid #485575;border-radius:12px;overflow:hidden;min-height:130px}.memory-photo{padding:0;text-align:left;color:inherit;cursor:pointer;width:100%;font:inherit;transition:transform .2s,border-color .2s}.memory-photo:active{transform:scale(.97)}.memory-photo:focus-visible{outline:2px solid #ef83c4;outline-offset:3px}
 .photo img{width:100%;height:160px;object-fit:cover;display:block}.photo p{padding:0 10px;font-size:12px}
 .cake{font-size:100px;line-height:1.3;filter:drop-shadow(0 8px 18px #0006);animation:bob 2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px)}}
 .flames{font-size:30px;letter-spacing:7px;animation:flicker .5s infinite alternate}@keyframes flicker{to{transform:scale(1.1);opacity:.7}}
 .stat{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #35415f}.bar{height:8px;background:#35415f;border-radius:20px;overflow:hidden;margin:5px 0 12px}.bar span{display:block;height:100%;background:linear-gradient(90deg,#7d8fff,#ef83c4)}
 footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
 @media(max-width:420px){body{padding:7px}.gallery{grid-template-columns:1fr 1fr}.photo img{height:125px}}
+.lightbox{position:fixed;inset:0;background:rgba(3,6,18,.94);z-index:99;display:none;align-items:center;justify-content:center;padding:18px}.lightbox.open{display:flex}.lightbox-inner{width:min(94vw,720px);text-align:center}.lightbox img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:14px;box-shadow:0 12px 50px #0009}.lightbox-caption{color:#f4c5e1;margin:12px 0}.lightbox-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.lightbox-controls button{width:auto;min-width:92px;padding:10px 15px}
 </style>
 </head>
 <body>
 <div class="shell">
-<header><div class="brand">♥ LOVE.EXE 6.0 <span class="muted">/ BIRTHDAY EDITION</span></div><span class="online">● SYSTEM ONLINE</span></header>
+<header><div class="brand">♥ LOVE.EXE 7.0 <span class="muted">/ BIRTHDAY EDITION</span></div><span class="online">● SYSTEM ONLINE</span></header>
 <main>
 <section id="s0">
 <div class="eyebrow">Personal notification • Priority: VERY HIGH</div>
@@ -107,9 +108,45 @@ footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
 
 <section id="s8" class="hidden">
 <div class="eyebrow">Memory vault • your favourite moments</div><h1 class="pink">Our memories gallery 📸</h1>
-<p>Add pictures from your phone to make this page personal. Photos are previewed in this browser only; they are not uploaded anywhere.</p>
-<div class="tile"><label for="photoInput"><b>CHOOSE YOUR PHOTOS</b></label><br><input id="photoInput" type="file" accept="image/*" multiple style="max-width:100%;margin-top:12px;color:#dce4fa"><p class="muted">Choose up to 12 pictures. Add them before sending the updated page if you want them included for her.</p></div>
-<div id="gallery" class="gallery"><div class="photo"><div style="padding:24px;text-align:center;font-size:36px">💗</div><p>Our favourite memories belong here.</p></div></div>
+<p>Twelve little windows into moments worth keeping. Tap any picture to see it properly. ❤️</p>
+<div id="gallery" class="gallery"><button class="photo memory-photo" type="button" data-photo="1" aria-label="Open memory 01">
+<img src="assets/photos/photo-01.jpg" alt="Memory 01" loading="lazy">
+<p>MEMORY 01 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="2" aria-label="Open memory 02">
+<img src="assets/photos/photo-02.jpg" alt="Memory 02" loading="lazy">
+<p>MEMORY 02 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="3" aria-label="Open memory 03">
+<img src="assets/photos/photo-03.jpg" alt="Memory 03" loading="lazy">
+<p>MEMORY 03 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="4" aria-label="Open memory 04">
+<img src="assets/photos/photo-04.jpg" alt="Memory 04" loading="lazy">
+<p>MEMORY 04 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="5" aria-label="Open memory 05">
+<img src="assets/photos/photo-05.jpg" alt="Memory 05" loading="lazy">
+<p>MEMORY 05 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="6" aria-label="Open memory 06">
+<img src="assets/photos/photo-06.jpg" alt="Memory 06" loading="lazy">
+<p>MEMORY 06 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="7" aria-label="Open memory 07">
+<img src="assets/photos/photo-07.jpg" alt="Memory 07" loading="lazy">
+<p>MEMORY 07 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="8" aria-label="Open memory 08">
+<img src="assets/photos/photo-08.jpg" alt="Memory 08" loading="lazy">
+<p>MEMORY 08 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="9" aria-label="Open memory 09">
+<img src="assets/photos/photo-09.jpg" alt="Memory 09" loading="lazy">
+<p>MEMORY 09 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="10" aria-label="Open memory 10">
+<img src="assets/photos/photo-10.jpg" alt="Memory 10" loading="lazy">
+<p>MEMORY 10 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="11" aria-label="Open memory 11">
+<img src="assets/photos/photo-11.jpg" alt="Memory 11" loading="lazy">
+<p>MEMORY 11 • A MOMENT TO KEEP 💗</p>
+</button><button class="photo memory-photo" type="button" data-photo="12" aria-label="Open memory 12">
+<img src="assets/photos/photo-12.jpg" alt="Memory 12" loading="lazy">
+<p>MEMORY 12 • A MOMENT TO KEEP 💗</p>
+</button></div>
+<p class="muted">12 memories loaded locally with LOVE.EXE. No photo uploads needed. ✨</p>
 <button id="toCake">LIGHT UP YOUR BIRTHDAY CAKE 🎂</button>
 </section>
 
@@ -153,7 +190,18 @@ Happy birthday, my beautiful girl. I love you. ❤️
 <p class="gold">You are loved. Never forget that.</p><button id="replay" class="alt">REPLAY THE SURPRISE</button>
 </section>
 </main>
-<footer>LOVE.EXE 6.0 • Built with affection, mischief and absolutely no actual hacking.</footer>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo memory viewer">
+  <div class="lightbox-inner">
+    <img id="lightboxImage" src="" alt="Expanded memory">
+    <p id="lightboxCaption" class="lightbox-caption"></p>
+    <div class="lightbox-controls">
+      <button type="button" id="photoPrev">← PREVIOUS</button>
+      <button type="button" id="photoClose">CLOSE ✕</button>
+      <button type="button" id="photoNext">NEXT →</button>
+    </div>
+  </div>
+</div>
+<footer>LOVE.EXE 7.0 • Built with affection, mischief and absolutely no actual hacking.</footer>
 </div>
 <div class="modalbg" id="modal"><div class="modal"><div class="eyebrow" id="mTag">SYSTEM ALERT</div><h2 id="mTitle">Warning</h2><p id="mText"></p><button id="mOk">OKAY 😂</button></div></div>
 <div class="hearts" id="hearts"></div>
@@ -173,7 +221,22 @@ let spinning=false,rotation=0;$("spin").onclick=()=>{if(spinning)return;spinning
 $("toScratch").onclick=()=>{go(7);setupScratch()};
 let scratched=false;function setupScratch(){const c=$("scratchCanvas"),wrap=$("scratchWrap"),r=wrap.getBoundingClientRect(),dpr=Math.max(1,window.devicePixelRatio||1);c.width=Math.round(r.width*dpr);c.height=Math.round(r.height*dpr);c.style.width=r.width+"px";c.style.height=r.height+"px";const g=c.getContext("2d");g.setTransform(dpr,0,0,dpr,0,0);g.globalCompositeOperation="source-over";const grad=g.createLinearGradient(0,0,r.width,r.height);grad.addColorStop(0,"#c6cad4");grad.addColorStop(.5,"#858c9e");grad.addColorStop(1,"#d9dce5");g.fillStyle=grad;g.fillRect(0,0,r.width,r.height);g.fillStyle="#26304a";g.font="bold 19px Arial";g.textAlign="center";g.fillText("SCRATCH HERE ✨",r.width/2,r.height/2);g.globalCompositeOperation="destination-out";let drawing=false;function point(e){const b=c.getBoundingClientRect();return{x:e.clientX-b.left,y:e.clientY-b.top}}function scratch(e){if(!drawing)return;const p=point(e);g.beginPath();g.arc(p.x,p.y,21,0,Math.PI*2);g.fill();check()}c.onpointerdown=e=>{drawing=true;c.setPointerCapture(e.pointerId);scratch(e)};c.onpointermove=scratch;c.onpointerup=()=>drawing=false;c.onpointercancel=()=>drawing=false}
 function check(){const c=$("scratchCanvas"),g=c.getContext("2d"),data=g.getImageData(0,0,c.width,c.height).data;let clear=0;for(let i=3;i<data.length;i+=32)if(data[i]<30)clear++;if(clear/(data.length/32)>.34&&!scratched){scratched=true;c.style.transition="opacity .5s";c.style.opacity="0";$("scratchStatus").textContent="SURPRISE UNLOCKED! Your birthday hug is ready. ❤️";$("toGallery").classList.remove("hidden")}}
-$("toGallery").onclick=()=>go(8);$("photoInput").onchange=e=>{const files=Array.from(e.target.files||[]).slice(0,12);$("gallery").innerHTML="";files.forEach((f,i)=>{if(!f.type.startsWith("image/"))return;const url=URL.createObjectURL(f),card=document.createElement("div");card.className="photo";const img=document.createElement("img");img.src=url;img.alt="Memory "+(i+1);const cap=document.createElement("p");cap.textContent="Memory "+String(i+1).padStart(2,"0")+" • A moment to keep 💗";card.append(img,cap);$("gallery").append(card)});};
+$("toGallery").onclick=()=>go(8);
+let activePhoto=1;
+function showPhoto(n){
+  activePhoto=((n-1+12)%12)+1;
+  $("lightboxImage").src=`assets/photos/photo-${String(activePhoto).padStart(2,"0")}.jpg`;
+  $("lightboxImage").alt=`Memory ${String(activePhoto).padStart(2,"0")}`;
+  $("lightboxCaption").textContent=`MEMORY ${String(activePhoto).padStart(2,"0")} • A MOMENT TO KEEP 💗`;
+  $("lightbox").classList.add("open");
+}
+function closePhoto(){$("lightbox").classList.remove("open");}
+document.querySelectorAll(".memory-photo").forEach(card=>card.addEventListener("click",()=>showPhoto(Number(card.dataset.photo))));
+$("photoPrev").onclick=()=>showPhoto(activePhoto-1);
+$("photoNext").onclick=()=>showPhoto(activePhoto+1);
+$("photoClose").onclick=closePhoto;
+$("lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")closePhoto();});
+document.addEventListener("keydown",e=>{if(!$("lightbox").classList.contains("open"))return;if(e.key==="Escape")closePhoto();if(e.key==="ArrowLeft")showPhoto(activePhoto-1);if(e.key==="ArrowRight")showPhoto(activePhoto+1);});
 $("toCake").onclick=()=>go(9);$("blow").onclick=()=>{$("flames").textContent="";$("cakeText").textContent="Wish made! May this year bring you everything beautiful. ❤️";$("blow").classList.add("hidden");$("toMidnight").classList.remove("hidden");for(let i=0;i<18;i++){const e=document.createElement("span");e.className="float";e.textContent=["✨","💖","🎉"][i%3];e.style.left=Math.random()*100+"%";$("hearts").append(e);setTimeout(()=>e.remove(),5000)}};
 function birthdayUnlocked(){const n=new Date();return n.getMonth()===10&&n.getDate()===7}
 function updateMidnight(){const n=new Date();$("midnightClock").textContent=n.toLocaleTimeString();if(birthdayUnlocked()){$("midnightMessage").textContent="MIDNIGHT ACCESS GRANTED! 🎉 Happy birthday, my beautiful girl. I hope today gives you a hundred reasons to smile. I love you. ❤️";$("toLetter").classList.remove("hidden");$("midnightHint").textContent="Birthday protocol unlocked on this device.";return true}return false}
