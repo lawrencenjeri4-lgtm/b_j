@@ -41,11 +41,27 @@ footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
 @media(max-width:420px){body{padding:7px}.gallery{grid-template-columns:1fr 1fr}.photo img{height:125px}}
 .lightbox{position:fixed;inset:0;background:rgba(3,6,18,.94);z-index:99;display:none;align-items:center;justify-content:center;padding:18px}.lightbox.open{display:flex}.lightbox-inner{width:min(94vw,720px);text-align:center}.lightbox img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:14px;box-shadow:0 12px 50px #0009}.lightbox-caption{color:#f4c5e1;margin:12px 0}.lightbox-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.lightbox-controls button{width:auto;min-width:92px;padding:10px 15px}
 
-.portal-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
-.portal-choice{min-height:66px;background:linear-gradient(120deg,#303d67,#70466f);color:#fff;border:1px solid #8b8bbd;font-size:15px}
-.portal-choice:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-#adventureFinal{margin:18px 0;text-align:left}
-@media(min-width:520px){.portal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.portal-choice{font-size:13px;padding:12px 8px}}
+/* Midnight Dimension expansion */
+.adventure-hero{position:relative;overflow:hidden;border:1px solid #9b73df;border-radius:18px;padding:24px 18px;background:radial-gradient(circle at 15% 20%,#6132a6aa,transparent 34%),radial-gradient(circle at 85% 5%,#ff72c455,transparent 30%),linear-gradient(135deg,#10132d,#21133c 55%,#0c1830);box-shadow:0 0 30px #b34cff25}
+.portal-grid,.quest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+.portal,.quest{background:linear-gradient(160deg,#252044,#10182d);border:1px solid #69538f;border-radius:14px;padding:14px;text-align:center;min-width:0}
+.portal .art,.quest .art{font-size:clamp(35px,8vw,55px);display:block;filter:drop-shadow(0 0 12px #ff75d7);margin-bottom:5px}
+.portal p,.quest p{font-size:12px;margin:5px 0;color:#cbd3e8}
+.portal button,.quest button{width:100%;font-size:11px;padding:10px 5px;margin:7px 0 0}
+.quest.done{border-color:#65e6b0;box-shadow:0 0 18px #65e6b022}
+.quest.locked{opacity:.82}
+.vault-art,.chapter-art{font-size:clamp(70px,18vw,110px);text-align:center;line-height:1.3;filter:drop-shadow(0 0 20px #f4b45a)}
+.code-input{width:min(100%,260px);padding:14px;border-radius:10px;border:1px solid #8d79c9;background:#080e1d;color:#fff;font-size:20px;text-align:center;letter-spacing:.25em}
+.progress-track{height:10px;background:#293653;border-radius:30px;overflow:hidden;margin:12px 0}
+.progress-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8d7cff,#ff80c8);transition:width .4s}
+.wish-input{width:100%;min-height:95px;border-radius:12px;border:1px solid #6575a0;background:#0a1223;color:#fff;padding:12px;font:inherit}
+.timecapsule{border:1px dashed #e6a4d4;background:linear-gradient(145deg,#261b42,#111a30);border-radius:16px;padding:20px;text-align:center}
+.midnight-launcher{position:fixed;z-index:120;left:50%;bottom:16px;transform:translateX(-50%);width:min(92vw,420px);box-shadow:0 0 28px #ff70c9aa;border:1px solid #ffd2eb;animation:pulseLaunch 1.8s ease-in-out infinite}@keyframes pulseLaunch{50%{box-shadow:0 0 38px #ff70c9;transform:translateX(-50%) scale(1.025)}}
+.reward-box{font-size:88px;animation:bob 2s ease-in-out infinite;filter:drop-shadow(0 0 20px #ffb1dc)}
+.tiny-note{font-size:11px;color:#91a0c2}
+@media(max-width:560px){.portal-grid,.quest-grid{grid-template-columns:1fr 1fr}.portal,.quest{padding:11px 8px}}
+@media(max-width:360px){.portal-grid,.quest-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -165,11 +181,97 @@ footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
 </section>
 
 <section id="s10" class="hidden center">
-<div class="eyebrow">Time-locked birthday message • local device time</div><h1 class="pink">The midnight surprise 🌙</h1>
+<div class="eyebrow">Time-locked birthday message • East Africa Time</div><h1 class="pink">THE LOCKDOWN 🌙</h1>
 <div class="big" id="midnightClock">--:--:--</div>
-<div class="tile"><h2>TOP SECRET MESSAGE</h2><p id="midnightMessage">This special message unlocks at midnight on 7 November. Come back when the clock strikes twelve. ❤️</p></div>
-<button id="toLetter" class="hidden">READ YOUR LOVE LETTER 💌</button>
-<p class="muted" id="midnightHint">The lock uses the date and time on this device.</p>
+<div class="tile"><div class="chapter-art">🔐🌌</div><h2>THE NEXT CHAPTER IS SEALED</h2><p id="midnightMessage">A secret world is waiting behind this lock. At 12:00 AM on 7 November, Kenya time, the system will open. ❤️</p></div>
+<button id="enterDimension" class="hidden">ENTER THE MIDNIGHT DIMENSION 🌌</button>
+<p class="muted" id="midnightHint">The countdown follows Africa/Nairobi time. Keep this page open or reopen it after midnight.</p>
+</section>
+
+
+<section id="s13" class="hidden">
+ <div class="eyebrow">LOVE.EXE • classified birthday expansion</div>
+ <div class="adventure-hero center">
+  <div class="chapter-art">🌌💗🚪</div><div class="eyebrow gold">LOCKDOWN OVERRIDE • ACCESS GRANTED</div>
+  <h1 class="pink">WELCOME TO THE MIDNIGHT DIMENSION</h1>
+  <p>The first adventure was only the introduction. The real surprise was hiding behind the lockdown… 😂❤️</p>
+  <div class="progress-track"><span id="questProgress"></span></div><p id="questProgressText" class="tiny-note">0 of 7 adventures completed</p>
+  <button id="beginDimension">LET THE REAL ADVENTURE BEGIN ✨</button>
+ </div>
+ <div class="tile"><h2 class="gold">YOUR MISSION</h2><p>Explore seven secret chapters. Each one reveals a new piece of the surprise. Finish them all to unlock the final birthday gift.</p></div>
+ <div class="quest-grid">
+  <div class="quest" id="qcard1"><span class="art">🗝️</span><b>01 • Birthday Vault</b><p>A puzzle guards hidden words.</p><button data-quest="1">OPEN VAULT</button></div>
+  <div class="quest" id="qcard2"><span class="art">📸</span><b>02 • Memory Lane</b><p>Explore the memories again.</p><button data-quest="2">VISIT MEMORIES</button></div>
+  <div class="quest" id="qcard3"><span class="art">💻</span><b>03 • Boyfriend Protocol</b><p>Decrypt the operator's message.</p><button data-quest="3">ACCESS TERMINAL</button></div>
+  <div class="quest" id="qcard4"><span class="art">🕯️</span><b>04 • Birthday Wish</b><p>Send a wish into the stars.</p><button data-quest="4">MAKE A WISH</button></div>
+  <div class="quest" id="qcard5"><span class="art">⏳</span><b>05 • Time Capsule</b><p>A message waiting for next year.</p><button data-quest="5">OPEN CAPSULE</button></div>
+  <div class="quest" id="qcard6"><span class="art">🎆</span><b>06 • Final Boss: LOVE</b><p>One last mission before the gift.</p><button data-quest="6">FACE THE FINAL BOSS</button></div>
+  <div class="quest" id="qcard7"><span class="art">🎁</span><b>07 • Birthday Gift</b><p>The final surprise is inside.</p><button data-quest="7">CLAIM YOUR GIFT</button></div>
+ </div>
+ <p class="tiny-note">Progress is saved in this browser, even if the page is refreshed.</p><button class="alt" id="backToLock">BACK TO THE LOCKDOWN</button>
+</section>
+
+<section id="s14" class="hidden center">
+ <div class="eyebrow">Prologue • choose your portal</div><h1 class="pink">THREE PORTALS. ONE VERY LOVED GIRL.</h1><p>Choose the energy you want to bring into this adventure. 😂</p>
+ <div class="portal-grid">
+  <div class="portal"><span class="art">🤗</span><b>PORTAL OF HUGS</b><p>Comfort, cuddles and warmth.</p><button data-portal="hugs">ENTER PORTAL</button></div>
+  <div class="portal"><span class="art">😂</span><b>PORTAL OF LAUGHTER</b><p>Chaos, jokes and silly moments.</p><button data-portal="laughs">ENTER PORTAL</button></div>
+  <div class="portal"><span class="art">💞</span><b>PORTAL OF FOREVER</b><p>The love that keeps choosing you.</p><button data-portal="forever">ENTER PORTAL</button></div>
+ </div>
+ <div class="tile hidden" id="portalMessage"><h2 class="pink" id="portalTitle"></h2><p id="portalText"></p><button id="portalContinue">CONTINUE TO THE BIRTHDAY VAULT 🔐</button></div>
+</section>
+
+<section id="s15" class="hidden center">
+ <div class="eyebrow">Adventure 01 • encrypted treasure chamber</div><div class="vault-art">🗝️💎🧰</div><h1 class="pink">THE BIRTHDAY VAULT</h1>
+ <p>Three hidden messages are waiting inside. First, prove you know the most important date in this little universe.</p>
+ <div class="tile"><h2>VAULT RIDDLE</h2><p>Enter the birthday as four digits: DDMM.</p><p class="gold">HINT: 7 November ❤️</p></div>
+ <input id="vaultCode" class="code-input" inputmode="numeric" maxlength="4" placeholder="DDMM" aria-label="Vault code">
+ <p id="vaultFeedback" class="muted">The vault is waiting for its key…</p><button id="unlockVault">UNLOCK THE VAULT 🔓</button>
+ <div id="vaultReward" class="tile hidden"><div class="chapter-art">💌</div><h2 class="gold">VAULT OPENED!</h2><p>SECRET 01: You are someone's favourite notification.<br>SECRET 02: Your smile is dangerously powerful.<br>SECRET 03: You are loved more than this tiny screen can explain. ❤️</p><button id="vaultDone">COLLECT THE TREASURE</button></div>
+</section>
+
+<section id="s16" class="hidden">
+ <div class="eyebrow">Adventure 02 • memory archive</div><h1 class="pink">MEMORY LANE 📸</h1><p>Twelve little windows. Tap each one to open a memory. These reuse the twelve photos already in your project.</p>
+ <div class="gallery" id="memoryLane"><button class="photo memory-photo" type="button" data-memory="1" aria-label="Open memory 01"><img src="assets/photos/photo-01.jpg" alt="Memory 01" loading="lazy"><p>MEMORY 01 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="2" aria-label="Open memory 02"><img src="assets/photos/photo-02.jpg" alt="Memory 02" loading="lazy"><p>MEMORY 02 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="3" aria-label="Open memory 03"><img src="assets/photos/photo-03.jpg" alt="Memory 03" loading="lazy"><p>MEMORY 03 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="4" aria-label="Open memory 04"><img src="assets/photos/photo-04.jpg" alt="Memory 04" loading="lazy"><p>MEMORY 04 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="5" aria-label="Open memory 05"><img src="assets/photos/photo-05.jpg" alt="Memory 05" loading="lazy"><p>MEMORY 05 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="6" aria-label="Open memory 06"><img src="assets/photos/photo-06.jpg" alt="Memory 06" loading="lazy"><p>MEMORY 06 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="7" aria-label="Open memory 07"><img src="assets/photos/photo-07.jpg" alt="Memory 07" loading="lazy"><p>MEMORY 07 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="8" aria-label="Open memory 08"><img src="assets/photos/photo-08.jpg" alt="Memory 08" loading="lazy"><p>MEMORY 08 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="9" aria-label="Open memory 09"><img src="assets/photos/photo-09.jpg" alt="Memory 09" loading="lazy"><p>MEMORY 09 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="10" aria-label="Open memory 10"><img src="assets/photos/photo-10.jpg" alt="Memory 10" loading="lazy"><p>MEMORY 10 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="11" aria-label="Open memory 11"><img src="assets/photos/photo-11.jpg" alt="Memory 11" loading="lazy"><p>MEMORY 11 • TAP TO REVEAL 💗</p></button><button class="photo memory-photo" type="button" data-memory="12" aria-label="Open memory 12"><img src="assets/photos/photo-12.jpg" alt="Memory 12" loading="lazy"><p>MEMORY 12 • TAP TO REVEAL 💗</p></button></div>
+ <div class="tile"><h2 class="gold">ARCHIVE MESSAGE</h2><p id="memoryNote">Every photo is a little reminder that the best things are often the moments we keep.</p><p class="tiny-note" id="memoryCount">0 of 12 memories opened</p></div>
+ <button id="memoryDone" disabled>OPEN THE NEXT CHAPTER 🔒</button>
+</section>
+
+<section id="s17" class="hidden center">
+ <div class="eyebrow">Adventure 03 • classified terminal</div><div class="chapter-art">💻💗</div><h1 class="pink">SECRET BOYFRIEND PROTOCOL</h1>
+ <p>A private transmission is encrypted behind a four-letter password.</p>
+ <div class="terminal">[SECURE CHANNEL ESTABLISHED]<br>[SENDER: YOUR FAVOURITE TROUBLEMAKER]<br>[MESSAGE STATUS: ENCRYPTED]<br><br>&gt; Enter the password to decrypt.</div>
+ <p class="gold">HINT: The four-letter thing this whole website is about. ❤️</p><input id="protocolCode" class="code-input" maxlength="12" placeholder="PASSWORD" aria-label="Secret password">
+ <p id="protocolFeedback" class="muted">Waiting for authentication…</p><button id="decryptProtocol">DECRYPT MESSAGE</button>
+ <div class="tile hidden" id="protocolReward"><h2 class="pink">TRANSMISSION DECRYPTED 💗</h2><p>I hope you never doubt how special you are. You make ordinary days feel worth remembering. If I could send one notification to your heart every day, it would simply say: “I choose you.”</p><button id="protocolDone">SAVE TRANSMISSION</button></div>
+</section>
+
+<section id="s18" class="hidden center">
+ <div class="eyebrow">Adventure 04 • wish constellation</div><div class="chapter-art">🕯️✨🌠</div><h1 class="pink">MAKE A BIRTHDAY WISH</h1>
+ <p>Type a wish, then send it into the stars. It can be serious, silly, huge or tiny.</p>
+ <textarea id="birthdayWish" class="wish-input" maxlength="240" placeholder="If I could wish for anything this year..."></textarea>
+ <button id="sendWish">SEND MY WISH INTO THE UNIVERSE 🌠</button>
+ <div id="wishResult" class="tile hidden"><div class="chapter-art">🌟💗🌟</div><h2 class="gold">WISH RECEIVED</h2><p id="wishEcho"></p><p>May this new year bring you beautiful surprises. ❤️</p><button id="wishDone">CONTINUE THE ADVENTURE</button></div>
+</section>
+
+<section id="s19" class="hidden center">
+ <div class="eyebrow">Adventure 05 • future message delivery</div><div class="chapter-art">⏳💌</div><h1 class="pink">THE TIME CAPSULE</h1>
+ <div class="timecapsule"><h2 class="gold">DELIVERY DATE: 7 NOVEMBER 2027</h2><p>A tiny message from today, saved for the next birthday.</p><div class="big" id="capsuleCountdown">365</div><p class="muted">days until the capsule can be opened</p><button id="openCapsule">OPEN NEXT YEAR'S MESSAGE</button><div id="capsuleMessage" class="tile hidden"><h2 class="pink">FROM THE PAST, WITH LOVE ❤️</h2><p>Hey birthday girl. If you're reading this, another year has passed. I hope you have grown, laughed, learned and collected beautiful moments. I hope the world has been gentle with you. And I hope you remember that on 7 November 2026, someone was very excited to make you smile. Happy birthday, my love. — Your favourite troublemaker</p></div></div>
+ <p class="tiny-note">The capsule uses this browser's saved progress. Keep the same device and browser to revisit it next year.</p><button id="capsuleDone">SEAL THE CAPSULE & CONTINUE</button>
+</section>
+
+<section id="s20" class="hidden center">
+ <div class="eyebrow">Adventure 06 • final encounter</div><div class="chapter-art">🎆💖👑</div><h1 class="pink">THE FINAL BOSS: LOVE</h1>
+ <p>You've solved the vault, visited the memories, decrypted the message and sent a wish into the universe. One final question remains.</p>
+ <div class="tile"><h2 class="gold">FINAL SYSTEM QUESTION</h2><p>What is the one thing this whole adventure has been trying to tell you?</p><button id="bossWrong" class="alt">That you owe the operator snacks 😂</button><button id="bossRight">That you are deeply loved. ❤️</button><p id="bossFeedback" class="muted"></p></div>
+ <div id="bossReward" class="tile hidden"><h2 class="pink">BOSS DEFEATED!</h2><p>No score, no competition, no conditions. Just love. ❤️</p><button id="bossDone">UNLOCK THE BIRTHDAY GIFT 🎁</button></div>
+</section>
+
+<section id="s21" class="hidden center">
+ <div class="eyebrow">Adventure 07 • reward chamber</div><div class="reward-box">🎁</div><h1 class="pink">THE BIRTHDAY GIFT</h1>
+ <p>You made it through every chapter. The lockdown is gone, the vault is open, and the final surprise belongs to you.</p>
+ <div class="tile"><h2 class="gold">YOUR OFFICIAL REWARD</h2><p>One lifetime subscription to hugs, laughter, random compliments, forehead kisses and someone cheering for you in every season of life. No expiry date. ❤️</p><p class="big">∞</p><p>Redeemable whenever you need a reminder that you matter.</p></div>
+ <button id="giftDone">CLAIM MY FOREVER PASS 💗</button>
 </section>
 
 <section id="s11" class="hidden">
@@ -193,39 +295,7 @@ Happy birthday, my beautiful girl. I love you. ❤️
 <p>May your new year of life be as lovely, bright and wonderful as you are.</p>
 <div class="tile"><h2>FINAL SYSTEM STATUS</h2><p>💕 Love: unlimited<br>😂 Laughter: required daily<br>🎂 Cake: absolutely necessary<br>❤️ Special-girl status: permanent</p></div>
 <div class="tile"><h2 class="gold">EMERGENCY BOYFRIEND PROTOCOL 🚨</h2><p>WARNING: Unauthorized levels of affection detected.</p><p>Subject is exceptionally beautiful. Resistance is futile.</p><p>LOVE.EXE has taken over this screen for one reason: to remind you that you are loved. ❤️</p></div>
-<p class="gold">You are loved. Never forget that.</p><button id="nextAdventure">ENTER THE NEXT ADVENTURE 🌌</button><button id="replay" class="alt">REPLAY THE SURPRISE</button>
-</section>
-
-<section id="s13" class="hidden center">
-  <div class="eyebrow">LOVE.EXE • expansion unlocked</div>
-  <h1 class="pink">THE MIDNIGHT DIMENSION 🌌</h1>
-  <p>You thought the birthday surprise was over… but the system has detected one more hidden world. Choose a portal to discover your next surprise. ❤️</p>
-  <div class="tile">
-    <div class="big">12:00 ✨</div>
-    <h2 class="gold">A NEW CHAPTER BEGINS</h2>
-    <p>Three portals. Three little surprises. One very special birthday girl.</p>
-  </div>
-  <div class="portal-grid">
-    <button class="portal-choice" data-portal="hug">💗 PORTAL OF HUGS</button>
-    <button class="portal-choice" data-portal="laugh">😂 PORTAL OF LAUGHTER</button>
-    <button class="portal-choice" data-portal="forever">✨ PORTAL OF FOREVER</button>
-  </div>
-  <div id="adventureReveal" class="tile hidden" aria-live="polite">
-    <div class="big" id="adventureEmoji">💗</div>
-    <h2 class="pink" id="adventureTitle">SURPRISE UNLOCKED</h2>
-    <p id="adventureText"></p>
-    <button id="adventureFinish" class="hidden">UNLOCK THE FINAL TRANSMISSION 💌</button>
-  </div>
-  <div id="adventureFinal" class="letter hidden">
-    You made it to the end of this little universe, but there is no end to how much I want to make you smile.
-
-    I hope this new year brings you beautiful surprises, loud laughter, peaceful days and every good thing your heart is wishing for.
-
-    Happy birthday once again, my favourite person. ❤️
-
-    — Your favourite troublemaker
-  </div>
-  <button id="adventureReplay" class="alt">REPLAY LOVE.EXE FROM THE BEGINNING</button>
+<p class="gold">You are loved. Never forget that.</p><button id="replay" class="alt">REPLAY THE SURPRISE</button>
 </section>
 </main>
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo memory viewer">
@@ -243,9 +313,10 @@ Happy birthday, my beautiful girl. I love you. ❤️
 </div>
 <div class="modalbg" id="modal"><div class="modal"><div class="eyebrow" id="mTag">SYSTEM ALERT</div><h2 id="mTitle">Warning</h2><p id="mText"></p><button id="mOk">OKAY 😂</button></div></div>
 <div class="hearts" id="hearts"></div>
+<button id="midnightLauncher" class="midnight-launcher hidden">🌌 MIDNIGHT UNLOCKED • ENTER THE NEXT ADVENTURE</button>
 <script>
 const $=id=>document.getElementById(id);
-function go(n){for(let i=0;i<=13;i++)$("s"+i).classList.toggle("hidden",i!==n);window.scrollTo({top:0,behavior:"smooth"})}
+function go(n){for(let i=0;i<=21;i++)$("s"+i).classList.toggle("hidden",i!==n);window.scrollTo({top:0,behavior:"smooth"})}
 function popup(title,text,tag="SYSTEM ALERT",done){$("mTitle").textContent=title;$("mText").textContent=text;$("mTag").textContent=tag;$("modal").style.display="grid";$("mOk").onclick=()=>{$("modal").style.display="none";if(done)done()}}
 function daysToBirthday(){const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());let b=new Date(now.getFullYear(),10,7);if(today>b)b=new Date(now.getFullYear()+1,10,7);return Math.round((b-today)/86400000)}
 $("start").onclick=()=>{let i=0;const messages=["Checking extraordinary beauty…","Measuring smile levels…","Searching for kindness…","Detecting birthday excitement…","Confirming boyfriend-approved cuteness…","SPECIAL PERSON FOUND ❤️"];$("start").disabled=true;const timer=setInterval(()=>{i++;let v=Math.round(i/messages.length*100);$("fill").style.width=v+"%";$("percent").textContent=v+"%";$("status").textContent=messages[i-1];$("scanLabel").textContent=i===messages.length?"Scan complete":"Scanning…";if(i===messages.length){clearInterval(timer);popup("WARNING 001 ⚠️","Dangerously high levels of cuteness detected. Please remain calm.","SECURITY ALERT",()=>popup("WARNING 002 🚨","Operator's heart has been stolen. Suspect is still at large… probably reading this.","SECURITY ALERT",()=>popup("WARNING 003 😂","Birthday excitement approaching critical levels. Cake supplies recommended.","SECURITY ALERT",()=>popup("CRITICAL ALERT 💗","One irreplaceable person detected. Proceed with extra hugs.","LOVE SECURITY",()=>go(1))))) }},500)};
@@ -276,46 +347,95 @@ $("photoClose").onclick=closePhoto;
 $("lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")closePhoto();});
 document.addEventListener("keydown",e=>{if(!$("lightbox").classList.contains("open"))return;if(e.key==="Escape")closePhoto();if(e.key==="ArrowLeft")showPhoto(activePhoto-1);if(e.key==="ArrowRight")showPhoto(activePhoto+1);});
 $("toCake").onclick=()=>go(9);$("blow").onclick=()=>{$("flames").textContent="";$("cakeText").textContent="Wish made! May this year bring you everything beautiful. ❤️";$("blow").classList.add("hidden");$("toMidnight").classList.remove("hidden");for(let i=0;i<18;i++){const e=document.createElement("span");e.className="float";e.textContent=["✨","💖","🎉"][i%3];e.style.left=Math.random()*100+"%";$("hearts").append(e);setTimeout(()=>e.remove(),5000)}};
-function birthdayUnlocked(){const n=new Date();return n.getMonth()===10&&n.getDate()===7}
-function updateMidnight(){const n=new Date();$("midnightClock").textContent=n.toLocaleTimeString();if(birthdayUnlocked()){$("midnightMessage").textContent="MIDNIGHT ACCESS GRANTED! 🎉 Happy birthday, my beautiful girl. I hope today gives you a hundred reasons to smile. I love you. ❤️";$("toLetter").classList.remove("hidden");$("midnightHint").textContent="Birthday protocol unlocked on this device.";return true}return false}
-$("toMidnight").onclick=()=>{go(10);updateMidnight();if(!birthdayUnlocked()){$("midnightHint").textContent="Come back after midnight when your device date is 7 November. The page checks automatically while open."}};
-$("toLetter").onclick=()=>go(11);$("final").onclick=()=>{go(12);for(let i=0;i<45;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").append(e);setTimeout(()=>e.remove(),7500)}};
-setInterval(()=>{if(!$("s10").classList.contains("hidden")){updateMidnight()}},1000);
-$("replay").onclick=()=>{scratched=false;$("scratchCanvas").style.opacity="1";$("scratchStatus").textContent="Scratch away at least a little of the silver layer.";$("toScratch").classList.add("hidden");$("terminalNext").classList.add("hidden");$("spin").disabled=false;$("wheelResult").textContent="Your reward is waiting…";$("start").disabled=false;$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("blow").classList.remove("hidden");$("toMidnight").classList.add("hidden");$("flames").textContent="🕯️ 🕯️ 🕯️";$("toLetter").classList.add("hidden");go(0)};
+const EAT_ZONE="Africa/Nairobi";
+function eatParts(date=new Date()){
+ const parts=new Intl.DateTimeFormat("en-GB",{timeZone:EAT_ZONE,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(date);
+ return Object.fromEntries(parts.filter(p=>p.type!=="literal").map(p=>[p.type,Number(p.value)]));
+}
+function birthdayUnlocked(){const n=eatParts();return n.year>2026||(n.year===2026&&(n.month>11||(n.month===11&&n.day>=7)))}
+function updateMidnight(){
+ const n=eatParts();$("midnightClock").textContent=`${String(n.hour).padStart(2,"0")}:${String(n.minute).padStart(2,"0")}:${String(n.second).padStart(2,"0")} EAT`;
+ if(birthdayUnlocked()){
+  $("midnightMessage").textContent="MIDNIGHT ACCESS GRANTED! 🎉 The lockdown has opened. Your next adventure is waiting behind this door. ❤️";
+  $("enterDimension").classList.remove("hidden");$("midnightLauncher").classList.remove("hidden");$("midnightHint").textContent="ACCESS GRANTED • Africa/Nairobi time verified.";return true;
+ }
+ const target=Date.UTC(2026,10,6,21,0,0),left=Math.max(0,target-Date.now()),hh=Math.floor(left/3600000),mm=Math.floor(left%3600000/60000),ss=Math.floor(left%60000/1000);
+ $("midnightMessage").textContent=`The next chapter opens at 12:00 AM on 7 November, Kenya time. ${String(hh).padStart(2,"0")}:${String(mm).padStart(2,"0")}:${String(ss).padStart(2,"0")} remaining.`;
+ return false;
+}
+$("toMidnight").onclick=()=>{go(10);updateMidnight()};
+$("enterDimension").onclick=()=>{refreshQuests();go(13)};
+$("midnightLauncher").onclick=()=>{refreshQuests();go(13)};
+$("final").onclick=()=>{go(12);for(let i=0;i<45;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").append(e);setTimeout(()=>e.remove(),7500)}};
+refreshQuests();updateMidnight();setInterval(()=>{updateMidnight();$("capsuleCountdown").textContent=capsuleDays()},1000);
 
-// LOVE.EXE 7.0 expansion: the next adventure is appended after the original finale.
-$("nextAdventure").onclick=()=>go(13);
-const portalStories={
-  hug:{emoji:"🤗",title:"PORTAL OF HUGS UNLOCKED",text:"A lifetime supply of hugs has been assigned to you. Redeem one whenever you need comfort, warmth, or a reminder that someone is always cheering for you. No expiry date. ❤️"},
-  laugh:{emoji:"😂",title:"PORTAL OF LAUGHTER UNLOCKED",text:"Birthday rule number one: keep laughing, especially at the operator's terrible jokes. You have unlimited permission to tease him, steal his snacks, and demand extra attention. 😂"},
-  forever:{emoji:"🌟",title:"PORTAL OF FOREVER UNLOCKED",text:"Beyond every countdown, surprise and little adventure is one simple wish: that life keeps giving you reasons to smile, and that I get many chances to be part of them. You are precious to me. ❤️"}
-};
-document.querySelectorAll(".portal-choice").forEach(button=>{
-  button.addEventListener("click",()=>{
-    const story=portalStories[button.dataset.portal];
-    if(!story)return;
-    $("adventureEmoji").textContent=story.emoji;
-    $("adventureTitle").textContent=story.title;
-    $("adventureText").textContent=story.text;
-    $("adventureReveal").classList.remove("hidden");
-    $("adventureFinish").classList.remove("hidden");
-    $("adventureFinal").classList.add("hidden");
-    $("adventureReveal").scrollIntoView({behavior:"smooth",block:"center"});
-  });
+/* MIDNIGHT DIMENSION QUEST ENGINE */
+const QUEST_KEY="loveexe7_midnight_quests_v1";
+let questState={completed:[],memories:[]};
+try{const saved=JSON.parse(localStorage.getItem(QUEST_KEY)||"{}");questState.completed=Array.isArray(saved.completed)?saved.completed:[];questState.memories=Array.isArray(saved.memories)?saved.memories:[]}catch(e){}
+function saveQuest(){try{localStorage.setItem(QUEST_KEY,JSON.stringify(questState))}catch(e){}}
+function completeQuest(n){if(!questState.completed.includes(n))questState.completed.push(n);saveQuest();refreshQuests()}
+function refreshQuests(){
+ const total=questState.completed.length;if($("questProgress"))$("questProgress").style.width=(total/7*100)+"%";
+ if($("questProgressText"))$("questProgressText").textContent=`${total} of 7 adventures completed`;
+ for(let i=1;i<=7;i++){const c=$("qcard"+i);if(c){c.classList.toggle("done",questState.completed.includes(i));c.classList.toggle("locked",!questState.completed.includes(i))}}
+ document.querySelectorAll("[data-quest]").forEach(b=>{const n=Number(b.dataset.quest);b.textContent=questState.completed.includes(n)?"REPLAY CHAPTER ✓":["OPEN VAULT","VISIT MEMORIES","ACCESS TERMINAL","MAKE A WISH","OPEN CAPSULE","FACE THE FINAL BOSS","CLAIM YOUR GIFT"][n-1]});
+}
+$("beginDimension").onclick=()=>go(14);$("backToLock").onclick=()=>go(10);
+document.querySelectorAll("[data-portal]").forEach(b=>b.onclick=()=>{
+ const data={
+  hugs:["PORTAL OF HUGS 🤗","Sending you the biggest virtual hug. The kind that says: breathe, relax, and remember that you are precious."],
+  laughs:["PORTAL OF LAUGHTER 😂","Warning: side effects may include random smiling, uncontrollable giggles and the operator asking for snacks."],
+  forever:["PORTAL OF FOREVER 💞","You are someone worth choosing, appreciating and cheering for — today and every day."]
+ }[b.dataset.portal];
+ $("portalTitle").textContent=data[0];$("portalText").textContent=data[1];$("portalMessage").classList.remove("hidden");
 });
-$("adventureFinish").onclick=()=>{
-  $("adventureFinal").classList.remove("hidden");
-  $("adventureFinish").classList.add("hidden");
-  for(let i=0;i<24;i++){
-    const e=document.createElement("span");
-    e.className="float";
-    e.textContent=["💖","✨","🌙","💕"][i%4];
-    e.style.left=Math.random()*100+"%";
-    $("hearts").append(e);
-    setTimeout(()=>e.remove(),6000);
-  }
-  $("adventureFinal").scrollIntoView({behavior:"smooth",block:"center"});
+$("portalContinue").onclick=()=>go(15);
+document.querySelectorAll("[data-quest]").forEach(b=>b.onclick=()=>{
+ const n=Number(b.dataset.quest);
+ if(n>1&&!questState.completed.includes(n-1)){
+  popup("CHAPTER LOCKED 🔒","Complete the previous adventure first. Every secret unlocks in its own time.","MIDNIGHT DIMENSION");
+  return;
+ }
+ go(14+n);
+});
+$("unlockVault").onclick=()=>{
+ const code=$("vaultCode").value.replace(/\s/g,"");
+ if(code==="0711"||code==="711"){$("vaultFeedback").textContent="KEY ACCEPTED • TREASURE FOUND";$("vaultReward").classList.remove("hidden");$("unlockVault").classList.add("hidden")}
+ else $("vaultFeedback").textContent="That key didn't work. Hint: day first, then month — 7 November.";
 };
-$("adventureReplay").onclick=()=>$("replay").click();
+$("vaultDone").onclick=()=>{completeQuest(1);go(13)};
+let memoryOpened=new Set(questState.memories);
+function updateMemoryCount(){$("memoryCount").textContent=`${memoryOpened.size} of 12 memories opened`;if(memoryOpened.size>=12){$("memoryDone").disabled=false;$("memoryDone").textContent="ARCHIVE COMPLETE • CONTINUE"}}
+document.querySelectorAll("[data-memory]").forEach(b=>b.onclick=()=>{
+ const n=Number(b.dataset.memory);memoryOpened.add(n);questState.memories=[...memoryOpened];saveQuest();
+ const notes=["A little moment worth keeping. 💗","Proof that ordinary days can become favourite memories.","A reminder to keep laughing together.","Some pictures hold more than a thousand words.","A tiny snapshot, a big feeling.","One more reason to smile today.","A memory saved with extra love.","A moment that deserves a replay.","A reminder that you are appreciated.","A little piece of our story.","The best memories are still being made.","And the story keeps going… ❤️"];
+ $("memoryNote").textContent=notes[n-1];updateMemoryCount();
+});
+$("memoryDone").onclick=()=>{completeQuest(2);go(13)};updateMemoryCount();
+$("decryptProtocol").onclick=()=>{
+ if($("protocolCode").value.trim().toLowerCase()==="love"){$("protocolFeedback").textContent="ACCESS GRANTED • MESSAGE DECRYPTED";$("protocolReward").classList.remove("hidden");$("decryptProtocol").classList.add("hidden")}
+ else $("protocolFeedback").textContent="ACCESS DENIED 😂 Hint: four letters. The theme of this entire mission.";
+};
+$("protocolDone").onclick=()=>{completeQuest(3);go(13)};
+$("sendWish").onclick=()=>{
+ const wish=$("birthdayWish").value.trim();$("wishEcho").textContent=wish?`Your wish: “${wish}”`:"You can keep your wish private if you prefer. The important part is that you make one. ❤️";
+ $("wishResult").classList.remove("hidden");$("sendWish").disabled=true;
+};
+$("wishDone").onclick=()=>{completeQuest(4);go(13)};
+function capsuleReady(){const n=eatParts();return n.year>2027||(n.year===2027&&(n.month>11||(n.month===11&&n.day>=7)))}
+function capsuleDays(){const target=Date.UTC(2027,10,6,21,0,0);return Math.max(0,Math.ceil((target-Date.now())/86400000))}
+$("capsuleCountdown").textContent=capsuleDays();
+$("openCapsule").onclick=()=>{
+ $("capsuleMessage").classList.remove("hidden");
+ if(!capsuleReady())$("capsuleMessage").innerHTML="<h2 class='pink'>SEALED UNTIL 7 NOVEMBER 2027 💗</h2><p>Your future message is waiting. Come back next birthday using this same browser to open the time capsule. For now, remember: you deserve good things, today and always. ❤️</p>";
+};
+$("capsuleDone").onclick=()=>{completeQuest(5);go(13)};
+$("bossWrong").onclick=()=>$("bossFeedback").textContent="😂 Snacks are important, but that's not the final answer. Try again!";
+$("bossRight").onclick=()=>{$("bossReward").classList.remove("hidden");$("bossFeedback").textContent="SYSTEM CONFIRMED • 100% CORRECT"};
+$("bossDone").onclick=()=>{completeQuest(6);go(13)};
+$("giftDone").onclick=()=>{completeQuest(7);go(11)};
+
+$("replay").onclick=()=>{questState={completed:[],memories:[]};memoryOpened=new Set();saveQuest();refreshQuests();updateMemoryCount();scratched=false;$("scratchCanvas").style.opacity="1";$("scratchStatus").textContent="Scratch away at least a little of the silver layer.";$("toScratch").classList.add("hidden");$("terminalNext").classList.add("hidden");$("spin").disabled=false;$("wheelResult").textContent="Your reward is waiting…";$("start").disabled=false;$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("blow").classList.remove("hidden");$("toMidnight").classList.add("hidden");$("flames").textContent="🕯️ 🕯️ 🕯️";$("toLetter").classList.add("hidden");go(0)};
 </script>
 </body></html>
