@@ -2,27 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LOVE.EXE 5.0 — The Girlfriend Protocol</title>
+<meta name="theme-color" content="#10162a">
+<title>LOVE.EXE 6.0 — Birthday Edition</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:18px;display:grid;place-items:center;background:radial-gradient(circle at top,#30395e,#090d19 72%);color:#f8f5ff;font:16px/1.55 "Segoe UI",Arial,sans-serif}
-.shell{width:min(100%,680px);border:1px solid #596487;border-radius:18px;overflow:hidden;background:#131c30;box-shadow:0 25px 90px #000a}
-header{padding:15px 19px;background:#202b46;border-bottom:1px solid #465372;display:flex;justify-content:space-between;gap:10px;align-items:center}.brand{font-weight:800;letter-spacing:.04em}.online{font-size:11px;color:#a7f2cf;border:1px solid #3d806d;border-radius:20px;padding:3px 9px}
-main{padding:clamp(19px,5vw,30px)}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#aebadd}
-h1{font-size:clamp(27px,7vw,42px);line-height:1.1;margin:10px 0}h2{font-size:23px;margin:8px 0}p{color:#cbd3e8}
+*{box-sizing:border-box}
+:root{--pink:#ffafd2;--purple:#9eabff;--gold:#ffe29b;--ink:#0c1222;--panel:#131d33;--line:#3b496b}
+body{margin:0;min-height:100vh;padding:14px;display:grid;place-items:center;background:radial-gradient(circle at 15% 0,#394269,#090d18 68%);color:#f8f5ff;font:16px/1.55 "Segoe UI",Arial,sans-serif}
+.shell{width:min(100%,720px);border:1px solid #596487;border-radius:19px;overflow:hidden;background:#131c30;box-shadow:0 25px 90px #000a}
+header{padding:14px 18px;background:#202b46;border-bottom:1px solid #465372;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:.04em}.online{font-size:11px;color:#a7f2cf;border:1px solid #3d806d;border-radius:20px;padding:3px 9px}
+main{padding:clamp(18px,5vw,30px)}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#aebadd}
+h1{font-size:clamp(27px,7vw,42px);line-height:1.12;margin:10px 0}h2{font-size:23px;margin:8px 0}p{color:#cbd3e8}
 .panel,.report{background:#0d1528;border:1px solid #354362;border-radius:14px;padding:17px;margin:18px 0}
 .row{display:flex;justify-content:space-between;gap:12px}.track{height:13px;background:#293653;border-radius:30px;overflow:hidden;margin:12px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#728eff,#e77fc4);transition:width .15s}
 #status{min-height:25px;color:#b9c7e4;font-size:14px}.muted{font-size:12px;color:#8998b9}
-button{border:0;border-radius:11px;padding:13px 17px;background:#ffb9d7;color:#211626;font-weight:800;font-size:14px;cursor:pointer;margin:4px 5px 4px 0}button.alt{background:#354360;color:#fff}button:disabled{opacity:.5;cursor:default}
-.hidden{display:none!important}.pink{color:#ffacd2}.gold{color:#ffe19b}.big{font-size:clamp(38px,10vw,58px);font-weight:900;color:#ffadd4}.center{text-align:center}
+button{border:0;border-radius:11px;padding:12px 16px;background:linear-gradient(120deg,#ffb9d7,#ffd2e5);color:#211626;font-weight:850;font-size:14px;cursor:pointer;margin:4px 5px 4px 0}
+button.alt{background:#354360;color:#fff}button:disabled{opacity:.5;cursor:default}
+.hidden{display:none!important}.pink{color:var(--pink)}.gold{color:var(--gold)}.big{font-size:clamp(38px,10vw,58px);font-weight:900;color:var(--pink)}.center{text-align:center}
 .tile{border:1px solid #4a5578;background:#202b46;border-radius:13px;padding:16px;margin:12px 0}.meter{height:8px;background:#35415f;border-radius:20px;overflow:hidden}.meter span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#7d8fff,#ef83c4)}
 .letter{white-space:pre-line;background:#fff4f8;color:#563449;border-radius:12px;padding:21px;font:16px/1.75 Georgia,serif}
-.modalbg{position:fixed;inset:0;background:#020611df;display:none;place-items:center;padding:18px;z-index:5}.modal{width:min(100%,430px);background:#1a2440;border:1px solid #727da4;border-radius:16px;padding:22px;box-shadow:0 20px 80px #000b}.modal p{white-space:pre-line}
-.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:4}.float{position:absolute;bottom:-35px;animation:rise 5s linear forwards;font-size:24px}@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+.modalbg{position:fixed;inset:0;background:#020611df;display:none;place-items:center;padding:18px;z-index:8}.modal{width:min(100%,430px);background:#1a2440;border:1px solid #727da4;border-radius:16px;padding:22px;box-shadow:0 20px 80px #000b}.modal p{white-space:pre-line}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:7}.float{position:absolute;bottom:-35px;animation:rise 5s linear forwards;font-size:24px}@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+.terminal{background:#050b12;color:#9dffba;border:1px solid #315b49;border-radius:12px;padding:15px;min-height:185px;font:13px/1.8 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.cursor{display:inline-block;width:8px;height:16px;background:#9dffba;vertical-align:middle;animation:blink .8s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+.scratch-wrap{position:relative;max-width:440px;margin:15px auto;border-radius:15px;overflow:hidden;border:2px solid #e7a9c8;touch-action:none}
+.scratch-prize{min-height:180px;display:grid;place-content:center;text-align:center;padding:25px;background:linear-gradient(135deg,#fff0f7,#ffe3ef);color:#68384f}
+#scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.wheel-wrap{display:grid;place-items:center;margin:18px auto;position:relative;width:min(78vw,310px)}
+#wheel{width:100%;height:auto;filter:drop-shadow(0 10px 20px #0008)}
+.pointer{position:absolute;top:-8px;z-index:2;color:#fff;font-size:30px;text-shadow:0 2px 5px #000}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.photo{background:#0d1528;border:1px solid #485575;border-radius:12px;overflow:hidden;min-height:130px}
+.photo img{width:100%;height:160px;object-fit:cover;display:block}.photo p{padding:0 10px;font-size:12px}
+.cake{font-size:100px;line-height:1.3;filter:drop-shadow(0 8px 18px #0006);animation:bob 2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px)}}
+.flames{font-size:30px;letter-spacing:7px;animation:flicker .5s infinite alternate}@keyframes flicker{to{transform:scale(1.1);opacity:.7}}
+.stat{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #35415f}.bar{height:8px;background:#35415f;border-radius:20px;overflow:hidden;margin:5px 0 12px}.bar span{display:block;height:100%;background:linear-gradient(90deg,#7d8fff,#ef83c4)}
 footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
-</style></head>
+@media(max-width:420px){body{padding:7px}.gallery{grid-template-columns:1fr 1fr}.photo img{height:125px}}
+</style>
+</head>
 <body>
 <div class="shell">
-<header><div class="brand">♥ LOVE.EXE 5.0 <span class="muted">/ BIRTHDAY EDITION</span></div><span class="online">● SYSTEM ONLINE</span></header>
+<header><div class="brand">♥ LOVE.EXE 6.0 <span class="muted">/ BIRTHDAY EDITION</span></div><span class="online">● SYSTEM ONLINE</span></header>
 <main>
 <section id="s0">
 <div class="eyebrow">Personal notification • Priority: VERY HIGH</div>
@@ -40,45 +61,79 @@ footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
 </section>
 
 <section id="s2" class="hidden">
-<div class="eyebrow">Mission 02 • Birthday access challenge</div><h1>One important date…</h1>
-<p>Which date is marked as a very important celebration in this system?</p>
+<div class="eyebrow">Mission 02 • Birthday access challenge</div><h1>One important date…</h1><p>Which date is marked as a very important celebration in this system?</p>
 <div class="tile"><button class="dateAnswer">6 November</button><button class="dateAnswer">7 November ❤️</button><button class="dateAnswer">8 November</button></div>
-<p class="muted" id="puzzleStatus">Choose carefully, agent.</p>
+<p class="muted">Choose carefully, agent.</p>
 </section>
 
 <section id="s3" class="hidden center">
 <div class="eyebrow">Access granted • priority birthday mission</div><h1>Mission: Celebrate YOU</h1><div class="big" id="days">--</div><p id="daysLabel">days until 7 November</p>
 <div class="tile"><h2 class="pink">MISSION BRIEF</h2><p>Objective: make one amazing girl feel celebrated, appreciated and loved.</p><p>Status: birthday preparations recommended. 🎂</p></div>
-<button id="toHacker">ENTER SECRET HACKER MODE 🕶️</button>
+<button id="toTerminal">OPEN THE LOVE TERMINAL 💻</button>
 </section>
 
 <section id="s4" class="hidden">
-<div class="eyebrow">Restricted area • identity verification</div><h1>Secret hacker mode 🕶️</h1>
-<p>A final passphrase is required to access the private birthday vault.</p>
-<div class="tile"><label for="passphrase">SECRET PASSPHRASE</label><input id="passphrase" type="password" placeholder="Enter the secret phrase" style="width:100%;padding:13px;border-radius:9px;border:1px solid #596487;background:#0d1528;color:#fff;margin:10px 0">
-<button id="unlockVault">UNLOCK THE VAULT 🔓</button><p class="muted" id="passStatus">Hint: the special date is involved. </p></div>
+<div class="eyebrow">Encrypted connection • operator message</div><h1 class="pink">Live love terminal</h1>
+<p>A message is arriving from the operator…</p><div class="terminal"><span id="terminalText"></span><span class="cursor"></span></div>
+<button id="terminalNext" class="hidden">RUN BOYFRIEND DIAGNOSTICS</button>
 </section>
 
 <section id="s5" class="hidden">
-<div class="eyebrow">Memory vault • classified with love</div><h1 class="pink">Little things worth keeping 💗</h1>
-<p>This vault is waiting for the moments that make your story yours. Add your own pictures and captions before sharing the page.</p>
-<div class="tile"><h2>📸 Memory file 001</h2><p>That moment when you made me smile without even trying.</p></div>
-<div class="tile"><h2>😂 Memory file 002</h2><p>Our random jokes, silly conversations and the laughter I never get tired of.</p></div>
-<div class="tile"><h2>❤️ Memory file 003</h2><p>All the little moments that remind me how lucky I am to have you.</p></div>
-<button id="toGift">OPEN THE FINAL GIFT VAULT 🎁</button>
+<div class="eyebrow">System diagnostics • confidential</div><h1>Boyfriend system report 😂</h1>
+<div class="tile">
+<div class="stat"><span>Affection levels</span><b class="pink">1000%</b></div><div class="bar"><span style="width:100%"></span></div>
+<div class="stat"><span>Missing-you status</span><b class="gold">CRITICAL</b></div><div class="bar"><span style="width:100%"></span></div>
+<div class="stat"><span>Heart occupancy</span><b>PERMANENTLY YOU</b></div><div class="bar"><span style="width:100%"></span></div>
+<div class="stat"><span>Chance of forgetting you</span><b>0.000%</b></div><div class="bar"><span style="width:0%"></span></div>
+<p class="muted">Diagnostic result: operator is hopelessly fond of the subject. No repair required.</p></div>
+<button id="toWheel">SPIN THE GIRLFRIEND PRIVILEGE WHEEL 🎡</button>
 </section>
 
 <section id="s6" class="hidden center">
-<div class="eyebrow">Confidential gift • access granted</div><h1>A little something for you…</h1><div class="big">🎁</div>
-<div class="tile"><h2 class="pink">THE GIFT VAULT</h2><p>🎟️ One lifetime pass for unlimited hugs.</p><p>💌 Unlimited love notes and reminders that you matter.</p><p>🤗 A personal hug supplier, available whenever you need one.</p><p>😂 A lifetime subscription to my nonsense.</p><p class="muted">Terms: non-refundable. Lifetime validity. 😂</p></div>
-<button id="toLetter">OPEN THE SECRET LOVE LETTER 💌</button>
+<div class="eyebrow">Reward generator • spin to claim</div><h1>Girlfriend privilege wheel</h1>
+<p>Spin the wheel and claim your official reward. No cheating, operator. 😂</p>
+<div class="wheel-wrap"><div class="pointer">▼</div><canvas id="wheel" width="320" height="320"></canvas></div>
+<h2 id="wheelResult" class="pink">Your reward is waiting…</h2>
+<button id="spin">SPIN FOR MY PRIVILEGE 💗</button><button id="toScratch" class="alt hidden">UNLOCK THE SCRATCH CARD</button>
 </section>
 
-<section id="s7" class="hidden">
+<section id="s7" class="hidden center">
+<div class="eyebrow">Classified reward • scratch to reveal</div><h1>You've unlocked a surprise!</h1>
+<p>Rub the card with your finger or mouse to reveal what's underneath.</p>
+<div class="scratch-wrap" id="scratchWrap"><div class="scratch-prize"><div style="font-size:48px">💌</div><h2>ONE BIG BIRTHDAY HUG</h2><p>Redeemable whenever you need one. Lifetime validity. ❤️</p></div><canvas id="scratchCanvas"></canvas></div>
+<p class="muted" id="scratchStatus">Scratch away at least a little of the silver layer.</p>
+<button id="toGallery" class="hidden">OPEN OUR MEMORY GALLERY 📸</button>
+</section>
+
+<section id="s8" class="hidden">
+<div class="eyebrow">Memory vault • your favourite moments</div><h1 class="pink">Our memories gallery 📸</h1>
+<p>Add pictures from your phone to make this page personal. Photos are previewed in this browser only; they are not uploaded anywhere.</p>
+<div class="tile"><label for="photoInput"><b>CHOOSE YOUR PHOTOS</b></label><br><input id="photoInput" type="file" accept="image/*" multiple style="max-width:100%;margin-top:12px;color:#dce4fa"><p class="muted">Choose up to 12 pictures. Add them before sending the updated page if you want them included for her.</p></div>
+<div id="gallery" class="gallery"><div class="photo"><div style="padding:24px;text-align:center;font-size:36px">💗</div><p>Our favourite memories belong here.</p></div></div>
+<button id="toCake">LIGHT UP YOUR BIRTHDAY CAKE 🎂</button>
+</section>
+
+<section id="s9" class="hidden center">
+<div class="eyebrow">Birthday celebration • make a wish</div><h1>One wish, just for you…</h1>
+<div class="flames" id="flames">🕯️ 🕯️ 🕯️</div><div class="cake">🎂</div>
+<p id="cakeText">Close your eyes, make a wish, then blow out your candles.</p>
+<button id="blow">BLOW OUT THE CANDLES 🌬️</button>
+<button id="toMidnight" class="hidden">UNLOCK THE MIDNIGHT SURPRISE 🌙</button>
+</section>
+
+<section id="s10" class="hidden center">
+<div class="eyebrow">Time-locked birthday message • local device time</div><h1 class="pink">The midnight surprise 🌙</h1>
+<div class="big" id="midnightClock">--:--:--</div>
+<div class="tile"><h2>TOP SECRET MESSAGE</h2><p id="midnightMessage">This special message unlocks at midnight on 7 November. Come back when the clock strikes twelve. ❤️</p></div>
+<button id="toLetter" class="hidden">READ YOUR LOVE LETTER 💌</button>
+<p class="muted" id="midnightHint">The lock uses the date and time on this device.</p>
+</section>
+
+<section id="s11" class="hidden">
 <div class="eyebrow">Private message • from your favourite troublemaker</div><h1 class="pink">A little note for you…</h1>
 <div class="letter">My love,
 
-I wanted to make you smile before your special day arrives. I hope 7 November reminds you how much you mean to me.
+I wanted to make you smile on your special day. I hope 7 November reminds you how much you mean to me.
 
 You deserve a day filled with happiness, laughter, peace and beautiful memories. Thank you for being yourself and for bringing so much joy into my life.
 
@@ -90,28 +145,41 @@ Happy birthday, my beautiful girl. I love you. ❤️
 <button id="final">ACTIVATE THE BIRTHDAY FINALE ✨</button>
 </section>
 
-<section id="s8" class="hidden center">
+<section id="s12" class="hidden center">
 <div class="eyebrow">LOVE.EXE • mission complete</div><div class="big">HAPPY BIRTHDAY!</div><h1 class="pink">To my favourite person 🥹❤️</h1>
 <p>May your new year of life be as lovely, bright and wonderful as you are.</p>
 <div class="tile"><h2>FINAL SYSTEM STATUS</h2><p>💕 Love: unlimited<br>😂 Laughter: required daily<br>🎂 Cake: absolutely necessary<br>❤️ Special-girl status: permanent</p></div>
 <div class="tile"><h2 class="gold">EMERGENCY BOYFRIEND PROTOCOL 🚨</h2><p>WARNING: Unauthorized levels of affection detected.</p><p>Subject is exceptionally beautiful. Resistance is futile.</p><p>LOVE.EXE has taken over this screen for one reason: to remind you that you are loved. ❤️</p></div>
 <p class="gold">You are loved. Never forget that.</p><button id="replay" class="alt">REPLAY THE SURPRISE</button>
 </section>
-</main><footer>LOVE.EXE 5.0 • Made with affection, mischief and absolutely no actual hacking.</footer>
+</main>
+<footer>LOVE.EXE 6.0 • Built with affection, mischief and absolutely no actual hacking.</footer>
 </div>
-<div class="modalbg" id="modal"><div class="modal"><div class="eyebrow" id="mTag">SYSTEM ALERT</div><h2 id="mTitle">Warning</h2><p id="mText"></p><button id="mOk">OKAY 😂</button></div></div><div class="hearts" id="hearts"></div>
+<div class="modalbg" id="modal"><div class="modal"><div class="eyebrow" id="mTag">SYSTEM ALERT</div><h2 id="mTitle">Warning</h2><p id="mText"></p><button id="mOk">OKAY 😂</button></div></div>
+<div class="hearts" id="hearts"></div>
 <script>
 const $=id=>document.getElementById(id);
-function go(n){for(let i=0;i<=8;i++)$("s"+i).classList.toggle("hidden",i!==n)}
+function go(n){for(let i=0;i<=12;i++)$("s"+i).classList.toggle("hidden",i!==n);window.scrollTo({top:0,behavior:"smooth"})}
 function popup(title,text,tag="SYSTEM ALERT",done){$("mTitle").textContent=title;$("mText").textContent=text;$("mTag").textContent=tag;$("modal").style.display="grid";$("mOk").onclick=()=>{$("modal").style.display="none";if(done)done()}}
 function daysToBirthday(){const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());let b=new Date(now.getFullYear(),10,7);if(today>b)b=new Date(now.getFullYear()+1,10,7);return Math.round((b-today)/86400000)}
-$("start").onclick=()=>{let i=0;const messages=["Checking extraordinary beauty…","Measuring smile levels…","Searching for kindness…","Detecting birthday excitement…","Confirming boyfriend-approved cuteness…","SPECIAL PERSON FOUND ❤️"];$("start").disabled=true;const timer=setInterval(()=>{i++;let v=Math.round(i/messages.length*100);$("fill").style.width=v+"%";$("percent").textContent=v+"%";$("status").textContent=messages[i-1];$("scanLabel").textContent=i===messages.length?"Scan complete":"Scanning…";if(i===messages.length){clearInterval(timer);popup("WARNING 001 ⚠️","Dangerously high levels of cuteness detected. Please remain calm.","SECURITY ALERT",()=>popup("WARNING 002 🚨","Operator's heart has been stolen. Suspect is still at large… probably reading this.","SECURITY ALERT",()=>popup("WARNING 003 😂","Birthday excitement approaching critical levels. Cake supplies recommended.","SECURITY ALERT",()=>popup("CRITICAL ALERT 💗","This system has detected one irreplaceable person. Proceed with extra hugs.","LOVE SECURITY",()=>go(1))))) }},550)};
+$("start").onclick=()=>{let i=0;const messages=["Checking extraordinary beauty…","Measuring smile levels…","Searching for kindness…","Detecting birthday excitement…","Confirming boyfriend-approved cuteness…","SPECIAL PERSON FOUND ❤️"];$("start").disabled=true;const timer=setInterval(()=>{i++;let v=Math.round(i/messages.length*100);$("fill").style.width=v+"%";$("percent").textContent=v+"%";$("status").textContent=messages[i-1];$("scanLabel").textContent=i===messages.length?"Scan complete":"Scanning…";if(i===messages.length){clearInterval(timer);popup("WARNING 001 ⚠️","Dangerously high levels of cuteness detected. Please remain calm.","SECURITY ALERT",()=>popup("WARNING 002 🚨","Operator's heart has been stolen. Suspect is still at large… probably reading this.","SECURITY ALERT",()=>popup("WARNING 003 😂","Birthday excitement approaching critical levels. Cake supplies recommended.","SECURITY ALERT",()=>popup("CRITICAL ALERT 💗","One irreplaceable person detected. Proceed with extra hugs.","LOVE SECURITY",()=>go(1))))) }},500)};
 $("toPuzzle").onclick=()=>go(2);
-document.querySelectorAll(".dateAnswer").forEach(b=>b.onclick=()=>{if(b.textContent.includes("7 November")){popup("ACCESS GRANTED 🔓","Correct! You have unlocked the birthday mission.","SECRET MISSION",()=>{let d=daysToBirthday();$("days").textContent=d===0?"TODAY!":d;$("daysLabel").textContent=d===0?"IT'S YOUR BIRTHDAY! 🎉":d===1?"day until 7 November":"days until 7 November";go(3)})}else popup("ACCESS DENIED 😂","Not quite, agent. Try again. Hint: the date is in the first week of November.")});
-$("toHacker").onclick=()=>go(4);
-$("unlockVault").onclick=()=>{const v=$("passphrase").value.trim().toLowerCase().replace(/\s+/g,"");if(v==="7november"){popup("ACCESS GRANTED 🔓","Secret birthday vault unlocked. Welcome to the private memories archive.","HACKER MODE",()=>go(5))}else{$("passStatus").textContent="ACCESS DENIED 😂 Try the date written in the hint."}};
-$("toGift").onclick=()=>go(6);
-$("toLetter").onclick=()=>go(7);
-$("final").onclick=()=>{go(8);for(let i=0;i<34;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").appendChild(e);setTimeout(()=>e.remove(),7500)}};
-$("replay").onclick=()=>{$("passphrase").value="";$("passStatus").textContent="Hint: the special date is involved. The passphrase is 7november.";$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("start").disabled=false;go(0)};
-</script></body></html>
+document.querySelectorAll(".dateAnswer").forEach(b=>b.onclick=()=>{if(b.textContent.includes("7 November")){popup("ACCESS GRANTED 🔓","Correct! You have unlocked the birthday mission.","SECRET MISSION",()=>{let d=daysToBirthday();$("days").textContent=d===0?"TODAY!":d;$("daysLabel").textContent=d===0?"IT'S YOUR BIRTHDAY! 🎉":d===1?"day until 7 November":"days until 7 November";go(3)})}else popup("ACCESS DENIED 😂","Not quite, agent. Hint: the date is in the first week of November.")});
+$("toTerminal").onclick=()=>{go(4);const lines=["[SECURE CHANNEL ESTABLISHED]","Connecting to the operator's heart… OK","Decrypting a very important message…","Message: You are my favourite notification. ❤️","Reminder: you deserve to feel celebrated.","Final transmission: HAPPY BIRTHDAY, MY LOVE!"];let line=0,char=0,out="";$("terminalText").textContent="";$("terminalNext").classList.add("hidden");const timer=setInterval(()=>{if(line>=lines.length){clearInterval(timer);$("terminalNext").classList.remove("hidden");return}out+=lines[line][char++]||"";$("terminalText").textContent=out+(char>lines[line].length-1?"\n":"");if(char>=lines[line].length){out+="\n";line++;char=0}},34)};
+$("terminalNext").onclick=()=>go(5);$("toWheel").onclick=()=>go(6);
+const rewards=["One giant hug 🤗","You choose our date night 🍿","Unlimited compliments 💗","A surprise treat 🍰","One wish from your boyfriend ✨","A long cuddle session 🥹"];
+const wc=$("wheel"),ctx=wc.getContext("2d");function drawWheel(rotation=0){const n=rewards.length,arc=Math.PI*2/n;ctx.clearRect(0,0,320,320);ctx.save();ctx.translate(160,160);ctx.rotate(rotation);rewards.forEach((r,i)=>{ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,148,i*arc,(i+1)*arc);ctx.closePath();ctx.fillStyle=i%2?"#e98fba":"#777fe0";ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.rotate(i*arc+arc/2);ctx.textAlign="right";ctx.fillStyle="#fff";ctx.font="bold 12px Arial";ctx.fillText(r.split(" ").slice(0,3).join(" "),135,4);ctx.restore()});ctx.beginPath();ctx.arc(0,0,24,0,Math.PI*2);ctx.fillStyle="#fff1f7";ctx.fill();ctx.restore()}drawWheel();
+let spinning=false,rotation=0;$("spin").onclick=()=>{if(spinning)return;spinning=true;$("spin").disabled=true;const start=performance.now(),from=rotation,to=from+Math.PI*2*(5+Math.random()*4)+Math.random()*Math.PI*2,duration=4200;function frame(now){let t=Math.min(1,(now-start)/duration),ease=1-Math.pow(1-t,4);rotation=from+(to-from)*ease;drawWheel(rotation);if(t<1)requestAnimationFrame(frame);else{spinning=false;const arc=2*Math.PI/rewards.length;let angle=((Math.PI*1.5-rotation)%(Math.PI*2)+Math.PI*2)%(Math.PI*2);let idx=Math.floor(angle/arc)%rewards.length;$("wheelResult").textContent="🎉 "+rewards[idx];$("spin").disabled=false;$("toScratch").classList.remove("hidden")}}requestAnimationFrame(frame)};
+$("toScratch").onclick=()=>{go(7);setupScratch()};
+let scratched=false;function setupScratch(){const c=$("scratchCanvas"),wrap=$("scratchWrap"),r=wrap.getBoundingClientRect(),dpr=Math.max(1,window.devicePixelRatio||1);c.width=Math.round(r.width*dpr);c.height=Math.round(r.height*dpr);c.style.width=r.width+"px";c.style.height=r.height+"px";const g=c.getContext("2d");g.setTransform(dpr,0,0,dpr,0,0);g.globalCompositeOperation="source-over";const grad=g.createLinearGradient(0,0,r.width,r.height);grad.addColorStop(0,"#c6cad4");grad.addColorStop(.5,"#858c9e");grad.addColorStop(1,"#d9dce5");g.fillStyle=grad;g.fillRect(0,0,r.width,r.height);g.fillStyle="#26304a";g.font="bold 19px Arial";g.textAlign="center";g.fillText("SCRATCH HERE ✨",r.width/2,r.height/2);g.globalCompositeOperation="destination-out";let drawing=false;function point(e){const b=c.getBoundingClientRect();return{x:e.clientX-b.left,y:e.clientY-b.top}}function scratch(e){if(!drawing)return;const p=point(e);g.beginPath();g.arc(p.x,p.y,21,0,Math.PI*2);g.fill();check()}c.onpointerdown=e=>{drawing=true;c.setPointerCapture(e.pointerId);scratch(e)};c.onpointermove=scratch;c.onpointerup=()=>drawing=false;c.onpointercancel=()=>drawing=false}
+function check(){const c=$("scratchCanvas"),g=c.getContext("2d"),data=g.getImageData(0,0,c.width,c.height).data;let clear=0;for(let i=3;i<data.length;i+=32)if(data[i]<30)clear++;if(clear/(data.length/32)>.34&&!scratched){scratched=true;c.style.transition="opacity .5s";c.style.opacity="0";$("scratchStatus").textContent="SURPRISE UNLOCKED! Your birthday hug is ready. ❤️";$("toGallery").classList.remove("hidden")}}
+$("toGallery").onclick=()=>go(8);$("photoInput").onchange=e=>{const files=Array.from(e.target.files||[]).slice(0,12);$("gallery").innerHTML="";files.forEach((f,i)=>{if(!f.type.startsWith("image/"))return;const url=URL.createObjectURL(f),card=document.createElement("div");card.className="photo";const img=document.createElement("img");img.src=url;img.alt="Memory "+(i+1);const cap=document.createElement("p");cap.textContent="Memory "+String(i+1).padStart(2,"0")+" • A moment to keep 💗";card.append(img,cap);$("gallery").append(card)});};
+$("toCake").onclick=()=>go(9);$("blow").onclick=()=>{$("flames").textContent="";$("cakeText").textContent="Wish made! May this year bring you everything beautiful. ❤️";$("blow").classList.add("hidden");$("toMidnight").classList.remove("hidden");for(let i=0;i<18;i++){const e=document.createElement("span");e.className="float";e.textContent=["✨","💖","🎉"][i%3];e.style.left=Math.random()*100+"%";$("hearts").append(e);setTimeout(()=>e.remove(),5000)}};
+function birthdayUnlocked(){const n=new Date();return n.getMonth()===10&&n.getDate()===7}
+function updateMidnight(){const n=new Date();$("midnightClock").textContent=n.toLocaleTimeString();if(birthdayUnlocked()){$("midnightMessage").textContent="MIDNIGHT ACCESS GRANTED! 🎉 Happy birthday, my beautiful girl. I hope today gives you a hundred reasons to smile. I love you. ❤️";$("toLetter").classList.remove("hidden");$("midnightHint").textContent="Birthday protocol unlocked on this device.";return true}return false}
+$("toMidnight").onclick=()=>{go(10);updateMidnight();if(!birthdayUnlocked()){$("midnightHint").textContent="Come back after midnight when your device date is 7 November. The page checks automatically while open."}};
+$("toLetter").onclick=()=>go(11);$("final").onclick=()=>{go(12);for(let i=0;i<45;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").append(e);setTimeout(()=>e.remove(),7500)}};
+setInterval(()=>{if(!$("s10").classList.contains("hidden")){updateMidnight()}},1000);
+$("replay").onclick=()=>{scratched=false;$("scratchCanvas").style.opacity="1";$("scratchStatus").textContent="Scratch away at least a little of the silver layer.";$("toScratch").classList.add("hidden");$("terminalNext").classList.add("hidden");$("spin").disabled=false;$("wheelResult").textContent="Your reward is waiting…";$("start").disabled=false;$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("blow").classList.remove("hidden");$("toMidnight").classList.add("hidden");$("flames").textContent="🕯️ 🕯️ 🕯️";$("toLetter").classList.add("hidden");go(0)};
+</script>
+</body></html>
