@@ -367,7 +367,7 @@ $("toMidnight").onclick=()=>{go(10);updateMidnight()};
 $("enterDimension").onclick=()=>{refreshQuests();go(13)};
 $("midnightLauncher").onclick=()=>{refreshQuests();go(13)};
 $("final").onclick=()=>{go(12);for(let i=0;i<45;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").append(e);setTimeout(()=>e.remove(),7500)}};
-refreshQuests();updateMidnight();setInterval(()=>{updateMidnight();$("capsuleCountdown").textContent=capsuleDays()},1000);
+/* Timer and quest UI initialization is performed after questState is created below. */
 
 /* MIDNIGHT DIMENSION QUEST ENGINE */
 const QUEST_KEY="loveexe7_midnight_quests_v1";
@@ -435,6 +435,20 @@ $("bossWrong").onclick=()=>$("bossFeedback").textContent="😂 Snacks are import
 $("bossRight").onclick=()=>{$("bossReward").classList.remove("hidden");$("bossFeedback").textContent="SYSTEM CONFIRMED • 100% CORRECT"};
 $("bossDone").onclick=()=>{completeQuest(6);go(13)};
 $("giftDone").onclick=()=>{completeQuest(7);go(11)};
+
+/* Start live clocks only after questState and all chapter handlers are ready. */
+function refreshLiveClocks(){
+  updateMidnight();
+  $("capsuleCountdown").textContent=capsuleDays();
+}
+refreshQuests();
+updateMemoryCount();
+refreshLiveClocks();
+setInterval(refreshLiveClocks,1000);
+document.addEventListener("visibilitychange",()=>{
+  if(!document.hidden) refreshLiveClocks();
+});
+
 
 $("replay").onclick=()=>{questState={completed:[],memories:[]};memoryOpened=new Set();saveQuest();refreshQuests();updateMemoryCount();scratched=false;$("scratchCanvas").style.opacity="1";$("scratchStatus").textContent="Scratch away at least a little of the silver layer.";$("toScratch").classList.add("hidden");$("terminalNext").classList.add("hidden");$("spin").disabled=false;$("wheelResult").textContent="Your reward is waiting…";$("start").disabled=false;$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("blow").classList.remove("hidden");$("toMidnight").classList.add("hidden");$("flames").textContent="🕯️ 🕯️ 🕯️";$("toLetter").classList.add("hidden");go(0)};
 </script>
