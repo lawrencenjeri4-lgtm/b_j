@@ -40,6 +40,12 @@ button.alt{background:#354360;color:#fff}button:disabled{opacity:.5;cursor:defau
 footer{padding:0 24px 20px;color:#8996b4;font-size:11px}
 @media(max-width:420px){body{padding:7px}.gallery{grid-template-columns:1fr 1fr}.photo img{height:125px}}
 .lightbox{position:fixed;inset:0;background:rgba(3,6,18,.94);z-index:99;display:none;align-items:center;justify-content:center;padding:18px}.lightbox.open{display:flex}.lightbox-inner{width:min(94vw,720px);text-align:center}.lightbox img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:14px;box-shadow:0 12px 50px #0009}.lightbox-caption{color:#f4c5e1;margin:12px 0}.lightbox-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.lightbox-controls button{width:auto;min-width:92px;padding:10px 15px}
+
+.portal-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
+.portal-choice{min-height:66px;background:linear-gradient(120deg,#303d67,#70466f);color:#fff;border:1px solid #8b8bbd;font-size:15px}
+.portal-choice:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+#adventureFinal{margin:18px 0;text-align:left}
+@media(min-width:520px){.portal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.portal-choice{font-size:13px;padding:12px 8px}}
 </style>
 </head>
 <body>
@@ -187,7 +193,39 @@ Happy birthday, my beautiful girl. I love you. ❤️
 <p>May your new year of life be as lovely, bright and wonderful as you are.</p>
 <div class="tile"><h2>FINAL SYSTEM STATUS</h2><p>💕 Love: unlimited<br>😂 Laughter: required daily<br>🎂 Cake: absolutely necessary<br>❤️ Special-girl status: permanent</p></div>
 <div class="tile"><h2 class="gold">EMERGENCY BOYFRIEND PROTOCOL 🚨</h2><p>WARNING: Unauthorized levels of affection detected.</p><p>Subject is exceptionally beautiful. Resistance is futile.</p><p>LOVE.EXE has taken over this screen for one reason: to remind you that you are loved. ❤️</p></div>
-<p class="gold">You are loved. Never forget that.</p><button id="replay" class="alt">REPLAY THE SURPRISE</button>
+<p class="gold">You are loved. Never forget that.</p><button id="nextAdventure">ENTER THE NEXT ADVENTURE 🌌</button><button id="replay" class="alt">REPLAY THE SURPRISE</button>
+</section>
+
+<section id="s13" class="hidden center">
+  <div class="eyebrow">LOVE.EXE • expansion unlocked</div>
+  <h1 class="pink">THE MIDNIGHT DIMENSION 🌌</h1>
+  <p>You thought the birthday surprise was over… but the system has detected one more hidden world. Choose a portal to discover your next surprise. ❤️</p>
+  <div class="tile">
+    <div class="big">12:00 ✨</div>
+    <h2 class="gold">A NEW CHAPTER BEGINS</h2>
+    <p>Three portals. Three little surprises. One very special birthday girl.</p>
+  </div>
+  <div class="portal-grid">
+    <button class="portal-choice" data-portal="hug">💗 PORTAL OF HUGS</button>
+    <button class="portal-choice" data-portal="laugh">😂 PORTAL OF LAUGHTER</button>
+    <button class="portal-choice" data-portal="forever">✨ PORTAL OF FOREVER</button>
+  </div>
+  <div id="adventureReveal" class="tile hidden" aria-live="polite">
+    <div class="big" id="adventureEmoji">💗</div>
+    <h2 class="pink" id="adventureTitle">SURPRISE UNLOCKED</h2>
+    <p id="adventureText"></p>
+    <button id="adventureFinish" class="hidden">UNLOCK THE FINAL TRANSMISSION 💌</button>
+  </div>
+  <div id="adventureFinal" class="letter hidden">
+    You made it to the end of this little universe, but there is no end to how much I want to make you smile.
+
+    I hope this new year brings you beautiful surprises, loud laughter, peaceful days and every good thing your heart is wishing for.
+
+    Happy birthday once again, my favourite person. ❤️
+
+    — Your favourite troublemaker
+  </div>
+  <button id="adventureReplay" class="alt">REPLAY LOVE.EXE FROM THE BEGINNING</button>
 </section>
 </main>
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo memory viewer">
@@ -207,7 +245,7 @@ Happy birthday, my beautiful girl. I love you. ❤️
 <div class="hearts" id="hearts"></div>
 <script>
 const $=id=>document.getElementById(id);
-function go(n){for(let i=0;i<=12;i++)$("s"+i).classList.toggle("hidden",i!==n);window.scrollTo({top:0,behavior:"smooth"})}
+function go(n){for(let i=0;i<=13;i++)$("s"+i).classList.toggle("hidden",i!==n);window.scrollTo({top:0,behavior:"smooth"})}
 function popup(title,text,tag="SYSTEM ALERT",done){$("mTitle").textContent=title;$("mText").textContent=text;$("mTag").textContent=tag;$("modal").style.display="grid";$("mOk").onclick=()=>{$("modal").style.display="none";if(done)done()}}
 function daysToBirthday(){const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());let b=new Date(now.getFullYear(),10,7);if(today>b)b=new Date(now.getFullYear()+1,10,7);return Math.round((b-today)/86400000)}
 $("start").onclick=()=>{let i=0;const messages=["Checking extraordinary beauty…","Measuring smile levels…","Searching for kindness…","Detecting birthday excitement…","Confirming boyfriend-approved cuteness…","SPECIAL PERSON FOUND ❤️"];$("start").disabled=true;const timer=setInterval(()=>{i++;let v=Math.round(i/messages.length*100);$("fill").style.width=v+"%";$("percent").textContent=v+"%";$("status").textContent=messages[i-1];$("scanLabel").textContent=i===messages.length?"Scan complete":"Scanning…";if(i===messages.length){clearInterval(timer);popup("WARNING 001 ⚠️","Dangerously high levels of cuteness detected. Please remain calm.","SECURITY ALERT",()=>popup("WARNING 002 🚨","Operator's heart has been stolen. Suspect is still at large… probably reading this.","SECURITY ALERT",()=>popup("WARNING 003 😂","Birthday excitement approaching critical levels. Cake supplies recommended.","SECURITY ALERT",()=>popup("CRITICAL ALERT 💗","One irreplaceable person detected. Proceed with extra hugs.","LOVE SECURITY",()=>go(1))))) }},500)};
@@ -244,5 +282,40 @@ $("toMidnight").onclick=()=>{go(10);updateMidnight();if(!birthdayUnlocked()){$("
 $("toLetter").onclick=()=>go(11);$("final").onclick=()=>{go(12);for(let i=0;i<45;i++){let e=document.createElement("span");e.className="float";e.textContent=["♥","💖","✨","💕","🎉"][i%5];e.style.left=Math.random()*100+"%";e.style.animationDelay=Math.random()*2+"s";$("hearts").append(e);setTimeout(()=>e.remove(),7500)}};
 setInterval(()=>{if(!$("s10").classList.contains("hidden")){updateMidnight()}},1000);
 $("replay").onclick=()=>{scratched=false;$("scratchCanvas").style.opacity="1";$("scratchStatus").textContent="Scratch away at least a little of the silver layer.";$("toScratch").classList.add("hidden");$("terminalNext").classList.add("hidden");$("spin").disabled=false;$("wheelResult").textContent="Your reward is waiting…";$("start").disabled=false;$("fill").style.width="0";$("percent").textContent="0%";$("status").textContent="Waiting for your permission to begin…";$("blow").classList.remove("hidden");$("toMidnight").classList.add("hidden");$("flames").textContent="🕯️ 🕯️ 🕯️";$("toLetter").classList.add("hidden");go(0)};
+
+// LOVE.EXE 7.0 expansion: the next adventure is appended after the original finale.
+$("nextAdventure").onclick=()=>go(13);
+const portalStories={
+  hug:{emoji:"🤗",title:"PORTAL OF HUGS UNLOCKED",text:"A lifetime supply of hugs has been assigned to you. Redeem one whenever you need comfort, warmth, or a reminder that someone is always cheering for you. No expiry date. ❤️"},
+  laugh:{emoji:"😂",title:"PORTAL OF LAUGHTER UNLOCKED",text:"Birthday rule number one: keep laughing, especially at the operator's terrible jokes. You have unlimited permission to tease him, steal his snacks, and demand extra attention. 😂"},
+  forever:{emoji:"🌟",title:"PORTAL OF FOREVER UNLOCKED",text:"Beyond every countdown, surprise and little adventure is one simple wish: that life keeps giving you reasons to smile, and that I get many chances to be part of them. You are precious to me. ❤️"}
+};
+document.querySelectorAll(".portal-choice").forEach(button=>{
+  button.addEventListener("click",()=>{
+    const story=portalStories[button.dataset.portal];
+    if(!story)return;
+    $("adventureEmoji").textContent=story.emoji;
+    $("adventureTitle").textContent=story.title;
+    $("adventureText").textContent=story.text;
+    $("adventureReveal").classList.remove("hidden");
+    $("adventureFinish").classList.remove("hidden");
+    $("adventureFinal").classList.add("hidden");
+    $("adventureReveal").scrollIntoView({behavior:"smooth",block:"center"});
+  });
+});
+$("adventureFinish").onclick=()=>{
+  $("adventureFinal").classList.remove("hidden");
+  $("adventureFinish").classList.add("hidden");
+  for(let i=0;i<24;i++){
+    const e=document.createElement("span");
+    e.className="float";
+    e.textContent=["💖","✨","🌙","💕"][i%4];
+    e.style.left=Math.random()*100+"%";
+    $("hearts").append(e);
+    setTimeout(()=>e.remove(),6000);
+  }
+  $("adventureFinal").scrollIntoView({behavior:"smooth",block:"center"});
+};
+$("adventureReplay").onclick=()=>$("replay").click();
 </script>
 </body></html>
